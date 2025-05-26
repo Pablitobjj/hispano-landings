@@ -1,0 +1,42 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/landings/landing_hispano.html",
+      "has": [{"type": "host", "value": "hispan.io"}]
+    },
+    {
+      "source": "/",
+      "destination": "/landings/landing_cb_pixel.html",
+      "has": [{"type": "host", "value": "pixel.hispan.io"}]
+    },
+    {
+      "source": "/",
+      "destination": "/landings/landing_hispano_pn.html",
+      "has": [{"type": "host", "value": "network.hispan.io"}]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/app",
+      "destination": "https://culturalbrain.net",
+      "permanent": true
+    },
+    {
+      "source": "/app/(.*)",
+      "destination": "https://culturalbrain.net/$1",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/landings/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000"
+        }
+      ]
+    }
+  ]
+}

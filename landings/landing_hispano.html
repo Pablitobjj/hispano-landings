@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HISPAÑO - Powering the Hispanic Digital Economy</title>
+    <meta name="description" content="The intelligence infrastructure for the $3.2 trillion Hispanic digital market. Cultural Brain, CB-Pixel, and Hispanic Premium Network - where culture meets technology.">
+    <meta property="og:image" content="/images/og-hispano-main.jpg">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/navigo@8.11.1/lib/navigo.min.js"></script>
+    
+    <style>
+        :root {
+            --primary: #173c67;
+            --secondary: #6D1B8F;
+            --accent: #2DD4BF;
+            --orange: #F27044;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .accent-text { color: var(--accent); }
+        .orange-text { color: var(--orange); }
+        
+        .btn-primary {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            color: white;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(23, 60, 103, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .cultural-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236D1B8F' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .nav-item { position: relative; cursor: pointer; }
+        .nav-item::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--accent); transition: width 0.3s ease; }
+        .nav-item:hover::after { width: 100%; }
+        
+        .nav-dropdown { position: absolute; top: 100%; left: 0; width: max-content; min-width:240px; padding: 16px; background: white; border-radius: 8px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 100; }
+        .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-item { padding: 8px 16px; border-radius: 4px; transition: all 0.2s ease; }
+        .dropdown-item:hover { background: rgba(23, 60, 103, 0.1); }
+        
+        .feature-icon { background: rgba(45, 212, 191, 0.1); border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+        .feature-icon i { font-size: 32px; color: var(--accent); }
+        
+        .tech-spec-table { width: 100%; border-collapse: collapse; }
+        .tech-spec-table th, .tech-spec-table td { padding: 16px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        .tech-spec-table th { background-color: #f7fafc; font-weight: 600; }
+        .tech-spec-table tr:hover { background-color: #f7fafc; }
+        
+        .page-section { padding: 100px 0; position: relative; }
+        
+        .testimonial-card { background: white; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); padding: 32px; margin-top: 40px; position: relative; }
+        .testimonial-card::before { content: '"'; position: absolute; top: -30px; left: 20px; font-size: 100px; font-family: 'Space Grotesk', sans-serif; color: var(--accent); opacity: 0.3; }
+        .testimonial-logo { height: 40px; margin-bottom: 20px; }
+        
+        .calculator-container { background: white; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); padding: 32px; margin-top: 40px; }
+        .calculator-result { background: #f7fafc; border-radius: 8px; padding: 24px; margin-top: 32px; }
+        
+        .hice-visual { position: relative; width: 100%; height: 400px; background: linear-gradient(135deg, rgba(23, 60, 103, 0.05), rgba(109, 27, 143, 0.05)); border-radius: 16px; overflow: hidden; }
+        .loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; border: 4px solid rgba(23, 60, 103, 0.1); border-radius: 50%; border-top: 4px solid var(--secondary); animation: spin 2s linear infinite; }
+        @keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+        
+        .content-node { position: absolute; width: 60px; height: 60px; border-radius: 50%; background: white; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--primary); animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+        .node-1 { top: 20%; left: 20%; } .node-2 { top: 30%; left: 50%; } .node-3 { top: 70%; left: 30%; } .node-4 { top: 60%; left: 70%; }
+        .connector { position: absolute; height: 2px; background: linear-gradient(to right, var(--secondary), var(--primary)); transform-origin: left center; }
+        
+        .stats-row { background: rgba(255, 255, 255, 0.1); border-radius: 50px; padding: 16px 24px; display: flex; justify-content: space-between; margin-top: 40px; }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 24px; font-weight: 700; color: white; }
+        .stat-label { font-size: 14px; opacity: 0.8; color: white; }
+        
+        .hispano-logo { height: 40px; display: inline-block; }
+        .cultural-brain-logo { height: 40px; display: inline-block; }
+        .brain-gradient { background: linear-gradient(to right, #f14b74, #1d41db); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        
+        @media (max-width: 768px) {
+            .nav-container { display: none; }
+            .mobile-menu-btn { display: block; }
+            .stats-row { flex-direction: column; gap: 16px; }
+            .hispano-logo, .cultural-brain-logo { height: 30px; }
+        }
+        
+        .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 1000; padding: 24px; transform: translateX(-100%); transition: transform 0.3s ease; }
+        .mobile-menu.active { transform: translateX(0); }
+        
+        #app { transition: all 0.3s ease; }
+        .active-page { display: block; }
+        .hidden-page { display: none; }
+        .fade-in { animation: fadeIn 0.5s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Language Switcher Styles */
+        .language-switcher { position: relative; display: inline-block; }
+        .language-btn { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; font-weight: 500; }
+        .language-btn:hover { border-color: var(--secondary); background: rgba(109, 27, 143, 0.05); color: var(--secondary); }
+        .language-btn.on-dark-bg { border-color: white; color: white; }
+        .language-btn.on-dark-bg:hover { border-color: var(--accent); background: rgba(255,255,255,0.1); color: var(--accent); }
+        .language-flag { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
+        .language-dropdown { position: absolute; top: 100%; right: 0; margin-top: 0.5rem; background: white; border: 1px solid #e5e7eb; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1000; min-width: 150px; }
+        .language-switcher:hover .language-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .language-option { padding: 0.75rem 1.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.75rem; transition: all 0.2s ease; color: #333; }
+        .language-option:hover { background: rgba(23, 60, 103, 0.05); }
+        .language-option.active { background: rgba(23, 60, 103, 0.1); color: var(--primary); font-weight: bold; }
+        
+        [data-lang]:not([data-lang="en"]) { display: none; }
+        body.lang-es [data-lang="en"] { display: none; }
+        body.lang-es [data-lang="es"] { display: initial; }
+    </style>
+</head>
+<body class="cultural-pattern">
+    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#/" class="flex items-center">
+                <img src="https://www.culturalbrain.net/static/images/logo_hispano_01.png" alt="HISPAÑO" class="hispano-logo">
+            </a>
+            
+            <div class="nav-container hidden md:flex items-center space-x-6 xl:space-x-8">
+                <div class="nav-item">
+                    <span class="font-medium"><span data-lang="en">Products</span><span data-lang="es">Productos</span></span>
+                    <div class="nav-dropdown">
+                        <a href="#/cultural-brain" class="dropdown-item flex items-center">
+                            <i class="fas fa-brain mr-3 text-indigo-600"></i>
+                            <div>
+                                <p class="font-medium">Cultural Brain</p>
+                                <p class="text-sm text-gray-600"><span data-lang="en">Intelligence Meets Culture</span><span data-lang="es">Inteligencia y Cultura</span></p>
+                            </div>
+                        </a>
+                        <a href="#/cb-pixel" class="dropdown-item flex items-center mt-2">
+                            <i class="fas fa-code mr-3 text-purple-600"></i>
+                            <div>
+                                <p class="font-medium">CB-Pixel</p>
+                                <p class="text-sm text-gray-600"><span data-lang="en">Verify Culture, Amplify Value</span><span data-lang="es">Verifica Cultura, Amplifica Valor</span></p>
+                            </div>
+                        </a>
+                        <a href="#/hispanic-network" class="dropdown-item flex items-center mt-2">
+                            <i class="fas fa-network-wired mr-3 text-teal-600"></i>
+                            <div>
+                                <p class="font-medium">Hispanic Premium Network</p>
+                                <p class="text-sm text-gray-600"><span data-lang="en">Premium Content, Premium Value</span><span data-lang="es">Contenido Premium, Valor Premium</span></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="nav-item">
+                    <span class="font-medium"><span data-lang="en">Solutions</span><span data-lang="es">Soluciones</span></span>
+                    <div class="nav-dropdown">
+                        <a href="#" class="dropdown-item"><span data-lang="en">For Brands</span><span data-lang="es">Para Marcas</span></a>
+                        <a href="#" class="dropdown-item"><span data-lang="en">For Agencies</span><span data-lang="es">Para Agencias</span></a>
+                        <a href="#" class="dropdown-item"><span data-lang="en">For Publishers</span><span data-lang="es">Para Editores</span></a>
+                        <a href="#" class="dropdown-item"><span data-lang="en">For Platforms</span><span data-lang="es">Para Plataformas</span></a>
+                    </div>
+                </div>
+                
+                <a href="#" class="nav-item font-medium"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a>
+                <a href="#" class="nav-item font-medium"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+                <a href="#" class="nav-item font-medium"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="language-switcher">
+                    <button class="language-btn" id="currentLangBtn">
+                        <img src="https://flagcdn.com/w20/us.png" alt="EN" class="language-flag" id="currentLangFlag">
+                        <span id="currentLangText">EN</span>
+                        <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option active" onclick="changeLanguage('en')">
+                            <img src="https://flagcdn.com/w20/us.png" alt="English" class="language-flag">
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('es')">
+                            <img src="https://flagcdn.com/w20/es.png" alt="Español" class="language-flag">
+                            <span>Español</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary hidden sm:block"><span data-lang="en">Schedule a Demo</span><span data-lang="es">Agendar Demo</span></button>
+            </div>
+            <button class="mobile-menu-btn md:hidden text-gray-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu">
+        <div class="flex justify-between items-center mb-8">
+            <img src="https://www.culturalbrain.net/static/images/logo_hispano_01.png" alt="HISPAÑO" class="hispano-logo">
+            <button class="mobile-menu-close text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="py-2">
+                <div class="font-medium mb-2"><span data-lang="en">Products</span><span data-lang="es">Productos</span></div>
+                <a href="#/cultural-brain" class="block py-2 px-4 text-sm">Cultural Brain</a>
+                <a href="#/cb-pixel" class="block py-2 px-4 text-sm">CB-Pixel</a>
+                <a href="#/hispanic-network" class="block py-2 px-4 text-sm">Hispanic Premium Network</a>
+            </div>
+            
+            <div class="py-2">
+                <div class="font-medium mb-2"><span data-lang="en">Solutions</span><span data-lang="es">Soluciones</span></div>
+                <a href="#" class="block py-2 px-4 text-sm"><span data-lang="en">For Brands</span><span data-lang="es">Para Marcas</span></a>
+                <a href="#" class="block py-2 px-4 text-sm"><span data-lang="en">For Agencies</span><span data-lang="es">Para Agencias</span></a>
+                <a href="#" class="block py-2 px-4 text-sm"><span data-lang="en">For Publishers</span><span data-lang="es">Para Editores</span></a>
+                <a href="#" class="block py-2 px-4 text-sm"><span data-lang="en">For Platforms</span><span data-lang="es">Para Plataformas</span></a>
+            </div>
+            
+            <a href="#" class="block py-2"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a>
+            <a href="#" class="block py-2"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+            <a href="#" class="block py-2"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a>
+            
+            <button class="btn-primary w-full mt-8"><span data-lang="en">Schedule a Demo</span><span data-lang="es">Agendar Demo</span></button>
+        </div>
+    </div>
+    
+    <div id="app">
+        <div id="home" class="page active-page">
+            <section class="min-h-screen flex items-center pt-24 gradient-bg">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col lg:flex-row items-center">
+                        <div class="lg:w-1/2 text-white" data-aos="fade-right">
+                            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                                <span data-lang="en">Powering the Hispanic Digital Economy</span>
+                                <span data-lang="es">Impulsando la Economía Digital Hispana</span>
+                            </h1>
+                            <p class="text-xl mb-8 opacity-90">
+                                <span data-lang="en">The intelligence infrastructure for the $3.2T Hispanic market</span>
+                                <span data-lang="es">La infraestructura de inteligencia para el mercado hispano de $3.2 billones</span>
+                            </p>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                <button class="btn-primary bg-white text-indigo-800 hover:bg-gray-100">
+                                    <span data-lang="en">Explore Our Products</span>
+                                    <span data-lang="es">Explorar Productos</span>
+                                </button>
+                                <button class="btn-secondary border-white text-white hover:bg-white hover:bg-opacity-10">
+                                    <span data-lang="en">View Case Studies</span>
+                                    <span data-lang="es">Ver Casos de Éxito</span>
+                                </button>
+                            </div>
+                            
+                            <div class="stats-row mt-12">
+                                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="stat-value" id="consumer-counter">0</div>
+                                    <div class="stat-label"><span data-lang="en">Consumers</span><span data-lang="es">Consumidores</span></div>
+                                </div>
+                                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="stat-value" id="market-counter">$0</div>
+                                    <div class="stat-label"><span data-lang="en">Market</span><span data-lang="es">Mercado</span></div>
+                                </div>
+                                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="stat-value" id="categories-counter">0</div>
+                                    <div class="stat-label"><span data-lang="en">Categories</span><span data-lang="es">Categorías</span></div>
+                                </div>
+                                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                                    <div class="stat-value" id="accuracy-counter">0%</div>
+                                    <div class="stat-label"><span data-lang="en">Accuracy</span><span data-lang="es">Precisión</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-1/2 mt-12 lg:mt-0" data-aos="fade-left">
+                            <div class="relative">
+                                <div class="bg-white bg-opacity-10 rounded-lg p-8">
+                                    <div class="aspect-w-16 aspect-h-9 relative">
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <i class="fas fa-play-circle text-6xl text-white opacity-80"></i>
+                                            <p class="absolute mt-24 text-white"><span data-lang="en">Click to play video</span><span data-lang="es">Clic para reproducir video</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="page-section bg-white" id="problem-section">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-4">
+                            <span data-lang="en">The Gap in the Hispanic Digital Market</span>
+                            <span data-lang="es">La Brecha en el Mercado Digital Hispano</span>
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            <span data-lang="en">Despite representing $3.2 trillion in purchasing power, the Hispanic digital market lacks the technological infrastructure to understand its cultural nuances.</span>
+                            <span data-lang="es">A pesar de representar $3.2 billones en poder adquisitivo, el mercado digital hispano carece de la infraestructura tecnológica para comprender sus matices culturales.</span>
+                        </p>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/2" data-aos="fade-right"><div class="relative h-96"><canvas id="marketChart" class="w-full h-full"></canvas></div></div>
+                        <div class="md:w-1/2" data-aos="fade-left">
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="mt-1 mr-4 text-red-500"><i class="fas fa-times-circle text-2xl"></i></div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-2"><span data-lang="en">One-size-fits-all approach</span><span data-lang="es">Enfoque único para todos</span></h3>
+                                        <p class="text-gray-600"><span data-lang="en">Current solutions treat Hispanic consumers as a monolithic group, ignoring generational, regional, and cultural differences.</span><span data-lang="es">Las soluciones actuales tratan a los consumidores hispanos como un grupo monolítico, ignorando las diferencias generacionales, regionales y culturales.</span></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="mt-1 mr-4 text-red-500"><i class="fas fa-times-circle text-2xl"></i></div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-2"><span data-lang="en">Limited data categories</span><span data-lang="es">Categorías de datos limitadas</span></h3>
+                                        <p class="text-gray-600"><span data-lang="en">Most platforms offer only 25-50 content categories, missing the cultural nuances that drive Hispanic engagement.</span><span data-lang="es">La mayoría de las plataformas ofrecen solo 25-50 categorías de contenido, perdiendo los matices culturales que impulsan la participación hispana.</span></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="mt-1 mr-4 text-red-500"><i class="fas fa-times-circle text-2xl"></i></div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-2"><span data-lang="en">Translation over cultural understanding</span><span data-lang="es">Traducción sobre comprensión cultural</span></h3>
+                                        <p class="text-gray-600"><span data-lang="en">Existing tools focus on language translation rather than cultural relevance, missing the deeper connections that drive consumer behavior.</span><span data-lang="es">Las herramientas existentes se centran en la traducción lingüística en lugar de la relevancia cultural, perdiendo las conexiones más profundas que impulsan el comportamiento del consumidor.</span></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="mt-1 mr-4 text-red-500"><i class="fas fa-times-circle text-2xl"></i></div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-2"><span data-lang="en">Undervalued Hispanic inventory</span><span data-lang="es">Inventario hispano infravalorado</span></h3>
+                                        <p class="text-gray-600"><span data-lang="en">Premium Hispanic content earns 40% less than general market content due to lack of proper verification and valuation systems.</span><span data-lang="es">El contenido hispano premium gana un 40% menos que el contenido del mercado general debido a la falta de sistemas adecuados de verificación y valoración.</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="page-section bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-4"><span data-lang="en">Our Ecosystem of Products</span><span data-lang="es">Nuestro Ecosistema de Productos</span></h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">HISPAÑO provides the technological infrastructure to bridge the gap between brands and Hispanic consumers through three integrated products.</span><span data-lang="es">HISPAÑO proporciona la infraestructura tecnológica para cerrar la brecha entre las marcas y los consumidores hispanos a través de tres productos integrados.</span></p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="h-48 bg-gradient-to-br from-blue-800 to-indigo-900 relative overflow-hidden"><div class="absolute inset-0 opacity-10"><div class="absolute top-0 left-0 w-20 h-20 bg-white rounded-full" style="filter: blur(30px);"></div><div class="absolute bottom-0 right-0 w-32 h-32 bg-indigo-400 rounded-full" style="filter: blur(40px);"></div></div><div class="absolute inset-0 flex items-center justify-center"><img src="https://www.culturalbrain.net/static/images/logo_cb_01.png" alt="Cultural Brain" class="cultural-brain-logo w-32 h-32"></div></div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-2">Cultural Brain®</h3>
+                                <p class="text-sm text-indigo-600 font-medium mb-4"><span data-lang="en">Intelligence Meets Culture</span><span data-lang="es">Inteligencia y Cultura</span></p>
+                                <p class="text-gray-600 mb-6"><span data-lang="en">The first SaaS platform that converts cultural analysis into actionable metrics for Hispanic marketing campaigns.</span><span data-lang="es">La primera plataforma SaaS que convierte el análisis cultural en métricas accionables para campañas de marketing hispanas.</span></p>
+                                <div class="flex items-center justify-between"><a href="#/cultural-brain" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center"><span data-lang="en">Learn More</span><span data-lang="es">Saber Más</span> <i class="fas fa-arrow-right ml-2"></i></a></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="h-48 bg-gradient-to-br from-purple-800 to-purple-900 relative overflow-hidden"><div class="absolute inset-0 opacity-10"><div class="absolute top-0 right-0 w-24 h-24 bg-white rounded-full" style="filter: blur(30px);"></div><div class="absolute bottom-0 left-0 w-40 h-40 bg-purple-400 rounded-full" style="filter: blur(40px);"></div></div><div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-code text-5xl text-white"></i></div></div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-2">CB-Pixel</h3>
+                                <p class="text-sm text-purple-600 font-medium mb-4"><span data-lang="en">Verify Culture, Amplify Value</span><span data-lang="es">Verifica Cultura, Amplifica Valor</span></p>
+                                <p class="text-gray-600 mb-6"><span data-lang="en">Next-gen verification technology that measures cultural relevance alongside traditional metrics like viewability and brand safety.</span><span data-lang="es">Tecnología de verificación de última generación que mide la relevancia cultural junto con métricas tradicionales como visibilidad y seguridad de marca.</span></p>
+                                <div class="flex items-center justify-between"><a href="#/cb-pixel" class="text-purple-600 font-medium hover:text-purple-800 flex items-center"><span data-lang="en">Learn More</span><span data-lang="es">Saber Más</span> <i class="fas fa-arrow-right ml-2"></i></a></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="h-48 bg-gradient-to-br from-teal-800 to-teal-900 relative overflow-hidden"><div class="absolute inset-0 opacity-10"><div class="absolute bottom-0 right-0 w-28 h-28 bg-white rounded-full" style="filter: blur(30px);"></div><div class="absolute top-0 left-0 w-36 h-36 bg-teal-400 rounded-full" style="filter: blur(40px);"></div></div><div class="absolute inset-0 flex items-center justify-center"><img src="https://www.culturalbrain.net/static/images/logo_hispano_03.png" alt="Hispanic Premium Network" class="w-20 h-20"></div></div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-2">Hispanic Premium Network</h3>
+                                <p class="text-sm text-teal-600 font-medium mb-4"><span data-lang="en">Premium Content, Premium Value</span><span data-lang="es">Contenido Premium, Valor Premium</span></p>
+                                <p class="text-gray-600 mb-6"><span data-lang="en">The first certified Hispanic publisher network that connects authentic Hispanic content with brands willing to pay premium rates.</span><span data-lang="es">La primera red certificada de editores hispanos que conecta contenido hispano auténtico con marcas dispuestas a pagar tarifas premium.</span></p>
+                                <div class="flex items-center justify-between"><a href="#/hispanic-network" class="text-teal-600 font-medium hover:text-teal-800 flex items-center"><span data-lang="en">Learn More</span><span data-lang="es">Saber Más</span> <i class="fas fa-arrow-right ml-2"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="page-section bg-white" id="hice-section">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col md:flex-row items-center gap-12">
+                        <div class="md:w-1/2" data-aos="fade-right">
+                            <h2 class="text-4xl font-bold mb-4"><span data-lang="en">Powered by HICE</span><span data-lang="es">Impulsado por HICE</span></h2>
+                            <p class="text-xl text-gray-600 mb-6"><span data-lang="en">Hispanic Intelligence Context Engine - our proprietary AI technology that powers the entire ecosystem.</span><span data-lang="es">Hispanic Intelligence Context Engine: nuestra tecnología de IA patentada que impulsa todo el ecosistema.</span></p>
+                            <div class="space-y-6">
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-green-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">698 IAB Content Categories</span><span data-lang="es">698 Categorías de Contenido IAB</span></h3><p class="text-gray-600"><span data-lang="en">The most comprehensive categorization system for Hispanic content, far surpassing the industry standard of 25-50 categories.</span><span data-lang="es">El sistema de categorización más completo para contenido hispano, superando con creces el estándar de la industria de 25-50 categorías.</span></p></div></div>
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-green-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Deep Cultural Understanding</span><span data-lang="es">Comprensión Cultural Profunda</span></h3><p class="text-gray-600"><span data-lang="en">Analyzes content across generations, regions, and cultural contexts to identify the subtle nuances that drive engagement.</span><span data-lang="es">Analiza contenido a través de generaciones, regiones y contextos culturales para identificar los matices sutiles que impulsan la participación.</span></p></div></div>
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-green-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">99.2% Accuracy</span><span data-lang="es">99.2% de Precisión</span></h3><p class="text-gray-600"><span data-lang="en">Industry-leading precision in identifying cultural context and content relevance in real-time.</span><span data-lang="es">Precisión líder en la industria para identificar el contexto cultural y la relevancia del contenido en tiempo real.</span></p></div></div>
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-green-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Continuous Learning</span><span data-lang="es">Aprendizaje Continuo</span></h3><p class="text-gray-600"><span data-lang="en">Our AI model continuously evolves with new cultural data, ensuring it stays relevant as Hispanic culture evolves.</span><span data-lang="es">Nuestro modelo de IA evoluciona continuamente con nuevos datos culturales, asegurando que se mantenga relevante a medida que evoluciona la cultura hispana.</span></p></div></div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2" data-aos="fade-left"><div class="hice-visual" id="hice-visualization"><div class="loader"></div><div class="content-node node-1"><i class="fas fa-file-alt"></i></div><div class="content-node node-2"><i class="fas fa-language"></i></div><div class="content-node node-3"><i class="fas fa-chart-bar"></i></div><div class="content-node node-4"><i class="fas fa-chart-line"></i></div></div></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="page-section gradient-bg text-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-4"><span data-lang="en">Success Stories</span><span data-lang="es">Casos de Éxito</span></h2>
+                        <p class="text-xl opacity-90 max-w-3xl mx-auto"><span data-lang="en">See how leading brands are transforming their Hispanic marketing with our technology.</span><span data-lang="es">Vea cómo las marcas líderes están transformando su marketing hispano con nuestra tecnología.</span></p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white bg-opacity-10 rounded-lg p-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="mb-6 h-12 flex items-center"><div class="text-2xl font-bold text-white">Walmart</div></div>
+                            <h3 class="text-xl font-bold mb-3"><span data-lang="en">312% Increase in Hispanic Engagement</span><span data-lang="es">Aumento del 312% en la Interacción Hispana</span></h3>
+                            <p class="opacity-90 mb-6"><span data-lang="en">Using Cultural Brain's CRS metrics to optimize their creative strategy, Walmart saw a 312% increase in engagement from Hispanic millennials.</span><span data-lang="es">Al utilizar las métricas CRS de Cultural Brain para optimizar su estrategia creativa, Walmart experimentó un aumento del 312% en la participación de los millennials hispanos.</span></p>
+                            <div class="flex justify-between items-center"><span class="text-sm font-medium"><span data-lang="en">Retail</span><span data-lang="es">Minorista</span></span><a href="#" class="text-accent-100 hover:text-white flex items-center"><span data-lang="en">Read Case Study</span><span data-lang="es">Leer Caso</span> <i class="fas fa-arrow-right ml-2"></i></a></div>
+                        </div>
+                        <div class="bg-white bg-opacity-10 rounded-lg p-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="mb-6 h-12 flex items-center"><div class="text-2xl font-bold text-white">State Farm</div></div>
+                            <h3 class="text-xl font-bold mb-3"><span data-lang="en">$2.3M in Untapped Hispanic Inventory</span><span data-lang="es">$2.3M en Inventario Hispano sin Explotar</span></h3>
+                            <p class="opacity-90 mb-6"><span data-lang="en">State Farm discovered $2.3M worth of high-performing Hispanic inventory that was previously unidentified by their existing tools.</span><span data-lang="es">State Farm descubrió un valor de $2.3M en inventario hispano de alto rendimiento que sus herramientas existentes no habían identificado previamente.</span></p>
+                            <div class="flex justify-between items-center"><span class="text-sm font-medium"><span data-lang="en">Insurance</span><span data-lang="es">Seguros</span></span><a href="#" class="text-accent-100 hover:text-white flex items-center"><span data-lang="en">Read Case Study</span><span data-lang="es">Leer Caso</span> <i class="fas fa-arrow-right ml-2"></i></a></div>
+                        </div>
+                        <div class="bg-white bg-opacity-10 rounded-lg p-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="mb-6 h-12 flex items-center"><div class="text-2xl font-bold text-white">Publicis</div></div>
+                            <h3 class="text-xl font-bold mb-3"><span data-lang="en">Campaign Planning Reduced from Weeks to Hours</span><span data-lang="es">Planificación de Campañas Reducida de Semanas a Horas</span></h3>
+                            <p class="opacity-90 mb-6"><span data-lang="en">Publicis now plans targeted Hispanic campaigns in hours instead of weeks using Cultural Brain's audience insights and automation.</span><span data-lang="es">Publicis ahora planifica campañas hispanas específicas en horas en lugar de semanas utilizando los insights de audiencia y la automatización de Cultural Brain.</span></p>
+                            <div class="flex justify-between items-center"><span class="text-sm font-medium"><span data-lang="en">Agency</span><span data-lang="es">Agencia</span></span><a href="#" class="text-accent-100 hover:text-white flex items-center"><span data-lang="en">Read Case Study</span><span data-lang="es">Leer Caso</span> <i class="fas fa-arrow-right ml-2"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-16"><button class="btn-primary bg-white text-indigo-800 hover:bg-gray-100"><span data-lang="en">View All Case Studies</span><span data-lang="es">Ver Todos los Casos</span></button></div>
+                </div>
+            </section>
+            
+            <section class="page-section bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-6"><span data-lang="en">Ready to Transform Your Hispanic Strategy?</span><span data-lang="es">¿Listo para Transformar tu Estrategia Hispana?</span></h2>
+                        <p class="text-xl text-gray-600 mb-10"><span data-lang="en">Join the leading brands leveraging HISPAÑO's technology to connect with the $3.2 trillion Hispanic market in a more meaningful way.</span><span data-lang="es">Únase a las marcas líderes que aprovechan la tecnología de HISPAÑO para conectar con el mercado hispano de $3.2 billones de una manera más significativa.</span></p>
+                        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                            <button class="btn-primary"><span data-lang="en">Schedule a Demo</span><span data-lang="es">Agendar Demo</span></button>
+                            <button class="btn-secondary"><span data-lang="en">Download Whitepaper</span><span data-lang="es">Descargar Whitepaper</span></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <footer class="bg-gray-900 text-white py-16">
+                <div class="container mx-auto px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div>
+                            <img src="https://www.culturalbrain.net/static/images/logo_hispano_01.png" alt="HISPAÑO" class="hispano-logo mb-6">
+                            <p class="opacity-70 mb-6"><span data-lang="en">The intelligence infrastructure for the Hispanic digital market.</span><span data-lang="es">La infraestructura de inteligencia para el mercado digital hispano.</span></p>
+                            <div class="flex space-x-4"><a href="#" class="hover:text-accent"><i class="fab fa-linkedin text-xl"></i></a><a href="#" class="hover:text-accent"><i class="fab fa-twitter text-xl"></i></a><a href="#" class="hover:text-accent"><i class="fab fa-instagram text-xl"></i></a></div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-6"><span data-lang="en">Products</span><span data-lang="es">Productos</span></h3>
+                            <ul class="space-y-3">
+                                <li><a href="#/cultural-brain" class="opacity-70 hover:opacity-100">Cultural Brain</a></li>
+                                <li><a href="#/cb-pixel" class="opacity-70 hover:opacity-100">CB-Pixel</a></li>
+                                <li><a href="#/hispanic-network" class="opacity-70 hover:opacity-100">Hispanic Premium Network</a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100">HICE Engine</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-6"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></h3>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="opacity-70 hover:opacity-100">Blog</a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100">Whitepapers</a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100">Webinars</a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">API Documentation</span><span data-lang="es">Documentación API</span></a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-6"><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h3>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">About Us</span><span data-lang="es">Nosotros</span></a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Leadership</span><span data-lang="es">Liderazgo</span></a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Careers</span><span data-lang="es">Carreras</span></a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                        <p class="opacity-70 text-sm"><span data-lang="en">© 2023 HISPAÑO. All rights reserved.</span><span data-lang="es">© 2023 HISPAÑO. Todos los derechos reservados.</span></p>
+                        <div class="flex space-x-6 mt-4 md:mt-0">
+                            <a href="#" class="text-sm opacity-70 hover:opacity-100"><span data-lang="en">Privacy Policy</span><span data-lang="es">Política de Privacidad</span></a>
+                            <a href="#" class="text-sm opacity-70 hover:opacity-100"><span data-lang="en">Terms of Service</span><span data-lang="es">Términos de Servicio</span></a>
+                            <a href="#" class="text-sm opacity-70 hover:opacity-100"><span data-lang="en">Cookie Policy</span><span data-lang="es">Política de Cookies</span></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+        <div id="cultural-brain" class="page hidden-page">
+            <section class="min-h-screen flex items-center pt-24 bg-gradient-to-br from-indigo-900 to-purple-900">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col lg:flex-row items-center">
+                        <div class="lg:w-1/2 text-white" data-aos="fade-right">
+                            <h1 class="text-5xl md:text-6xl font-bold mb-6"><span data-lang="en">Turn Cultural Intelligence into Campaign Performance</span><span data-lang="es">Convierte la Inteligencia Cultural en Rendimiento de Campaña</span></h1>
+                            <p class="text-xl mb-8 opacity-90"><span data-lang="en">The only platform that measures, analyzes, and optimizes Hispanic market campaigns with scientific precision</span><span data-lang="es">La única plataforma que mide, analiza y optimiza campañas para el mercado hispano con precisión científica</span></p>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                <button class="btn-primary bg-white text-indigo-800 hover:bg-gray-100"><span data-lang="en">Start Free Trial</span><span data-lang="es">Comenzar Prueba Gratuita</span></button>
+                                <button class="btn-secondary border-white text-white hover:bg-white hover:bg-opacity-10"><span data-lang="en">Book Demo</span><span data-lang="es">Agendar Demo</span></button>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 mt-12 lg:mt-0" data-aos="fade-left"><div class="bg-white bg-opacity-10 rounded-lg p-6"><img src="https://www.genspark.ai/images/dashboard-example.png" alt="Cultural Brain Dashboard" class="rounded-lg shadow-2xl"></div></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-4"><span data-lang="en">Measure What Matters</span><span data-lang="es">Mide lo que Importa</span></h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">Our proprietary metrics provide unprecedented insight into cultural relevance and performance.</span><span data-lang="es">Nuestras métricas patentadas proporcionan una visión sin precedentes sobre la relevancia cultural y el rendimiento.</span></p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="metric-card" data-aos="fade-up" data-aos-delay="100"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3 class="text-2xl font-bold mb-2">CRS</h3><h4 class="text-lg text-indigo-600 mb-4"><span data-lang="en">Cultural Relevance Score</span><span data-lang="es">Puntuación de Relevancia Cultural</span></h4><p class="text-gray-600"><span data-lang="en">Measures how well your content resonates with specific Hispanic cultural segments on a 1-100 scale.</span><span data-lang="es">Mide qué tan bien resuena tu contenido con segmentos culturales hispanos específicos en una escala de 1 a 100.</span></p></div>
+                        <div class="metric-card" data-aos="fade-up" data-aos-delay="200"><div class="feature-icon"><i class="fas fa-users"></i></div><h3 class="text-2xl font-bold mb-2">CAI</h3><h4 class="text-lg text-indigo-600 mb-4"><span data-lang="en">Cultural Affinity Index</span><span data-lang="es">Índice de Afinidad Cultural</span></h4><p class="text-gray-600"><span data-lang="en">Identifies which Hispanic sub-segments have the strongest affinity for your brand or content.</span><span data-lang="es">Identifica qué subsegmentos hispanos tienen la mayor afinidad por tu marca o contenido.</span></p></div>
+                        <div class="metric-card" data-aos="fade-up" data-aos-delay="300"><div class="feature-icon"><i class="fas fa-puzzle-piece"></i></div><h3 class="text-2xl font-bold mb-2">CCS</h3><h4 class="text-lg text-indigo-600 mb-4"><span data-lang="en">Cultural Cohesion Score</span><span data-lang="es">Puntuación de Cohesión Cultural</span></h4><p class="text-gray-600"><span data-lang="en">Measures how consistently your messaging maintains cultural relevance across different channels and executions.</span><span data-lang="es">Mide la consistencia con la que tu mensaje mantiene la relevancia cultural a través de diferentes canales y ejecuciones.</span></p></div>
+                    </div>
+                </div>
+            </section>
+             <section class="page-section bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-4"><span data-lang="en">Plan Smarter Campaigns</span><span data-lang="es">Planifica Campañas Más Inteligentes</span></h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">Use data-driven insights to create campaigns that resonate deeply with Hispanic audiences.</span><span data-lang="es">Utiliza insights basados en datos para crear campañas que resuenen profundamente con las audiencias hispanas.</span></p>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center gap-12">
+                        <div class="md:w-1/2" data-aos="fade-right"><img src="https://www.genspark.ai/images/analytics-dashboard.png" alt="Campaign Planning Dashboard" class="rounded-lg shadow-lg"></div>
+                        <div class="md:w-1/2" data-aos="fade-left">
+                            <div class="space-y-6">
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-indigo-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">698 IAB categories</span><span data-lang="es">698 categorías IAB</span></h3><p class="text-gray-600"><span data-lang="en">Access the most detailed content categorization in the industry, compared to competitor's 25-50 categories.</span><span data-lang="es">Accede a la categorización de contenido más detallada de la industria, en comparación con las 25-50 categorías de la competencia.</span></p></div></div>
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-indigo-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Real-time cultural trending</span><span data-lang="es">Tendencias culturales en tiempo real</span></h3><p class="text-gray-600"><span data-lang="en">Identify cultural topics gaining momentum before they peak, allowing you to stay ahead of trends.</span><span data-lang="es">Identifica temas culturales que ganan impulso antes de que alcancen su punto máximo, permitiéndote anticiparte a las tendencias.</span></p></div></div>
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-indigo-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Audience overlap analysis</span><span data-lang="es">Análisis de superposición de audiencias</span></h3><p class="text-gray-600"><span data-lang="en">Discover unexpected audience connections and interest patterns to refine targeting strategies.</span><span data-lang="es">Descubre conexiones de audiencia inesperadas y patrones de interés para refinar las estrategias de segmentación.</span></p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-4"><span data-lang="en">Pricing Plans</span><span data-lang="es">Planes de Precios</span></h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">Choose the plan that fits your organization's Hispanic marketing needs.</span><span data-lang="es">Elige el plan que se adapte a las necesidades de marketing hispano de tu organización.</span></p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="border rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                            <div class="p-6 bg-gray-50"><h3 class="text-xl font-bold mb-2"><span data-lang="en">Starter</span><span data-lang="es">Básico</span></h3><div class="text-4xl font-bold mb-2">$4,999<span class="text-lg font-normal text-gray-500"><span data-lang="en">/mo</span><span data-lang="es">/mes</span></span></div><p class="text-gray-600"><span data-lang="en">Perfect for small teams getting started with Hispanic marketing</span><span data-lang="es">Perfecto para equipos pequeños que comienzan con el marketing hispano</span></p></div>
+                            <div class="p-6 space-y-4"><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">Basic CRS metrics</span><span data-lang="es">Métricas CRS básicas</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">10 campaigns per month</span><span data-lang="es">10 campañas por mes</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">Standard reporting</span><span data-lang="es">Informes estándar</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">2 user licenses</span><span data-lang="es">2 licencias de usuario</span></span></div><div class="flex items-center opacity-50"><i class="fas fa-times mr-3"></i><span><span data-lang="en">API access</span><span data-lang="es">Acceso API</span></span></div><div class="pt-6"><button class="btn-primary w-full"><span data-lang="en">Get Started</span><span data-lang="es">Comenzar</span></button></div></div>
+                        </div>
+                        <div class="border rounded-lg overflow-hidden shadow-lg relative" data-aos="fade-up" data-aos-delay="200">
+                            <div class="absolute top-0 right-0 bg-indigo-600 text-white py-1 px-4 text-sm font-medium"><span data-lang="en">Most Popular</span><span data-lang="es">Más Popular</span></div>
+                            <div class="p-6 bg-indigo-50"><h3 class="text-xl font-bold mb-2"><span data-lang="en">Professional</span><span data-lang="es">Profesional</span></h3><div class="text-4xl font-bold mb-2">$9,999<span class="text-lg font-normal text-gray-500"><span data-lang="en">/mo</span><span data-lang="es">/mes</span></span></div><p class="text-gray-600"><span data-lang="en">Ideal for growing agencies with multiple Hispanic campaigns</span><span data-lang="es">Ideal para agencias en crecimiento con múltiples campañas hispanas</span></p></div>
+                            <div class="p-6 space-y-4"><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">Full CRS, CAI, and CCS metrics</span><span data-lang="es">Métricas completas CRS, CAI y CCS</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">Unlimited campaigns</span><span data-lang="es">Campañas ilimitadas</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">Advanced reporting & dashboards</span><span data-lang="es">Informes y paneles avanzados</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">10 user licenses</span><span data-lang="es">10 licencias de usuario</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">Basic API access</span><span data-lang="es">Acceso API básico</span></span></div><div class="pt-6"><button class="btn-primary w-full"><span data-lang="en">Get Started</span><span data-lang="es">Comenzar</span></button></div></div>
+                        </div>
+                        <div class="border rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                            <div class="p-6 bg-gray-50"><h3 class="text-xl font-bold mb-2"><span data-lang="en">Enterprise</span><span data-lang="es">Empresarial</span></h3><div class="text-4xl font-bold mb-2"><span data-lang="en">Custom</span><span data-lang="es">Personalizado</span></div><p class="text-gray-600"><span data-lang="en">Tailored for large organizations with complex needs</span><span data-lang="es">Adaptado para grandes organizaciones con necesidades complejas</span></p></div>
+                            <div class="p-6 space-y-4"><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">Custom metrics and scoring</span><span data-lang="es">Métricas y puntuaciones personalizadas</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">Unlimited everything</span><span data-lang="es">Todo ilimitado</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">White-labeled reports</span><span data-lang="es">Informes de marca blanca</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">Unlimited users</span><span data-lang="es">Usuarios ilimitados</span></span></div><div class="flex items-center"><i class="fas fa-check text-indigo-600 mr-3"></i><span><span data-lang="en">Full API integration</span><span data-lang="es">Integración API completa</span></span></div><div class="pt-6"><button class="btn-secondary w-full"><span data-lang="en">Contact Sales</span><span data-lang="es">Contactar Ventas</span></button></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section gradient-bg text-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold mb-4"><span data-lang="en">What Our Clients Say</span><span data-lang="es">Lo que Dicen Nuestros Clientes</span></h2><p class="text-xl opacity-90 max-w-3xl mx-auto"><span data-lang="en">Trusted by leading CMOs and agencies.</span><span data-lang="es">Con la confianza de CMOs y agencias líderes.</span></p></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100"><div class="text-xl mb-6"><span data-lang="en">"Cultural Brain transformed how we approach Hispanic marketing. The insights we've gained allowed us to increase engagement by 312% in just three months."</span><span data-lang="es">"Cultural Brain transformó cómo abordamos el marketing hispano. Los insights que obtuvimos nos permitieron aumentar la participación en un 312% en solo tres meses."</span></div><div class="flex items-center"><div class="mr-4 w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-xl font-bold text-white">WM</div><div><div class="font-bold">Maria Rodriguez</div><div class="text-sm text-gray-600"><span data-lang="en">VP of Multicultural Marketing, Walmart</span><span data-lang="es">VP de Marketing Multicultural, Walmart</span></div></div></div></div>
+                        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200"><div class="text-xl mb-6"><span data-lang="en">"We found $2.3M in untapped Hispanic inventory that was previously unidentified by our existing tools. The ROI has been incredible."</span><span data-lang="es">"Encontramos $2.3M en inventario hispano sin explotar que nuestras herramientas existentes no habían identificado previamente. El ROI ha sido increíble."</span></div><div class="flex items-center"><div class="mr-4 w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-xl font-bold text-white">SF</div><div><div class="font-bold">Carlos Martinez</div><div class="text-sm text-gray-600"><span data-lang="en">Director of Media, State Farm</span><span data-lang="es">Director de Medios, State Farm</span></div></div></div></div>
+                        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300"><div class="text-xl mb-6"><span data-lang="en">"Cultural Brain reduced our campaign planning time from weeks to hours. The platform's automation and insights have been a game-changer for our team."</span><span data-lang="es">"Cultural Brain redujo nuestro tiempo de planificación de campañas de semanas a horas. La automatización y los insights de la plataforma han cambiado las reglas del juego para nuestro equipo."</span></div><div class="flex items-center"><div class="mr-4 w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-xl font-bold text-white">PG</div><div><div class="font-bold">Sophie Chen</div><div class="text-sm text-gray-600"><span data-lang="en">SVP of Strategy, Publicis</span><span data-lang="es">SVP de Estrategia, Publicis</span></div></div></div></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-6"><span data-lang="en">Ready to Transform Your Hispanic Campaigns?</span><span data-lang="es">¿Listo para Transformar tus Campañas Hispanas?</span></h2>
+                        <p class="text-xl text-gray-600 mb-10"><span data-lang="en">Join the leading brands using Cultural Brain to connect with Hispanic audiences in a more meaningful and measurable way.</span><span data-lang="es">Únete a las marcas líderes que usan Cultural Brain para conectar con audiencias hispanas de una manera más significativa y medible.</span></p>
+                        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                            <button class="btn-primary"><span data-lang="en">Start Free Trial</span><span data-lang="es">Comenzar Prueba Gratuita</span></button>
+                            <button class="btn-secondary"><span data-lang="en">Book Demo</span><span data-lang="es">Agendar Demo</span></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="bg-gray-900 text-white py-16">
+                <div class="container mx-auto px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <div class="md:col-span-2">
+                            <div class="mb-6"><img src="https://page1.genspark.site/v1/base64_upload/bf99a3fe14b95f4c6f5942af62bc7bb4" alt="Cultural Brain" class="cultural-brain-logo"></div>
+                            <p class="opacity-70 mb-6"><span data-lang="en">The culturenomics platform for Hispanic markets.</span><span data-lang="es">La plataforma de culturenomics para mercados hispanos.</span></p>
+                            <div class="flex space-x-4"><a href="#" class="hover:text-accent"><i class="fab fa-linkedin text-xl"></i></a><a href="#" class="hover:text-accent"><i class="fab fa-twitter text-xl"></i></a><a href="#" class="hover:text-accent"><i class="fab fa-instagram text-xl"></i></a></div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-6"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></h3>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Help Center</span><span data-lang="es">Centro de Ayuda</span></a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">API Documentation</span><span data-lang="es">Documentación API</span></a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100">Webinars</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-6"><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h3>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">About HISPAÑO</span><span data-lang="es">Sobre HISPAÑO</span></a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Contact Us</span><span data-lang="es">Contáctanos</span></a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Careers</span><span data-lang="es">Carreras</span></a></li>
+                                <li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Partners</span><span data-lang="es">Socios</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                        <p class="opacity-70 text-sm"><span data-lang="en">© 2023 HISPAÑO. All rights reserved.</span><span data-lang="es">© 2023 HISPAÑO. Todos los derechos reservados.</span></p>
+                        <div class="flex space-x-6 mt-4 md:mt-0">
+                            <a href="#" class="text-sm opacity-70 hover:opacity-100"><span data-lang="en">Privacy Policy</span><span data-lang="es">Política de Privacidad</span></a>
+                            <a href="#" class="text-sm opacity-70 hover:opacity-100"><span data-lang="en">Terms of Service</span><span data-lang="es">Términos de Servicio</span></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+        <div id="cb-pixel" class="page hidden-page">
+            <section class="min-h-screen flex items-center pt-24 bg-gradient-to-br from-purple-900 to-indigo-900">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col lg:flex-row items-center">
+                        <div class="lg:w-1/2 text-white" data-aos="fade-right">
+                            <h1 class="text-5xl md:text-6xl font-bold mb-6"><span data-lang="en">Verification That Sees Beyond the Surface</span><span data-lang="es">Verificación que Ve Más Allá de la Superficie</span></h1>
+                            <p class="text-xl mb-8 opacity-90"><span data-lang="en">The only verification pixel that measures cultural relevance alongside viewability and brand safety</span><span data-lang="es">El único píxel de verificación que mide la relevancia cultural junto con la visibilidad y la seguridad de marca</span></p>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                <button class="btn-primary bg-white text-purple-800 hover:bg-gray-100"><span data-lang="en">Get API Access</span><span data-lang="es">Obtener Acceso API</span></button>
+                                <button class="btn-secondary border-white text-white hover:bg-white hover:bg-opacity-10"><span data-lang="en">Technical Documentation</span><span data-lang="es">Documentación Técnica</span></button>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 mt-12 lg:mt-0" data-aos="fade-left"><div class="bg-white bg-opacity-10 rounded-lg p-6"><pre class="bg-gray-900 rounded-lg p-6 text-green-400 text-sm font-mono overflow-x-auto">&lt;script&gt;\n  (function(w,d,s,l,i){\n    w[l]=w[l]||[];w[l].push({'cbp.start': new Date().getTime(),event:'cbp.js'});\n    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';\n    j.async=true;j.src='https://pixel.hispano.io/tag/cbp.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n  })(window,document,'script','cbDataLayer','CB-XXXXXXXX');\n&lt;/script&gt;</pre><p class="text-white text-center mt-4"><span data-lang="en">One line of code. Cultural verification at scale.</span><span data-lang="es">Una línea de código. Verificación cultural a escala.</span></p></div></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold mb-4"><span data-lang="en">Technical Specifications</span><span data-lang="es">Especificaciones Técnicas</span></h2><p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">See how CB-Pixel outperforms traditional verification solutions.</span><span data-lang="es">Vea cómo CB-Pixel supera a las soluciones de verificación tradicionales.</span></p></div>
+                    <div class="overflow-x-auto" data-aos="fade-up">
+                        <table class="tech-spec-table">
+                            <thead><tr><th><span data-lang="en">Feature</span><span data-lang="es">Característica</span></th><th>CB-Pixel</th><th>DoubleVerify</th><th>IAS</th></tr></thead>
+                            <tbody>
+                                <tr><td><span data-lang="en">Viewability</span><span data-lang="es">Visibilidad</span></td><td class="text-green-600">✓</td><td class="text-green-600">✓</td><td class="text-green-600">✓</td></tr>
+                                <tr><td><span data-lang="en">Brand Safety</span><span data-lang="es">Seguridad de Marca</span></td><td class="text-green-600">✓</td><td class="text-green-600">✓</td><td class="text-green-600">✓</td></tr>
+                                <tr><td><span data-lang="en">Cultural Analysis</span><span data-lang="es">Análisis Cultural</span></td><td class="text-green-600"><span data-lang="en">✓ (Unique)</span><span data-lang="es">✓ (Único)</span></td><td class="text-red-600">✗</td><td class="text-red-600">✗</td></tr>
+                                <tr><td><span data-lang="en">IAB Categories</span><span data-lang="es">Categorías IAB</span></td><td class="font-bold">698</td><td>25</td><td>50</td></tr>
+                                <tr><td><span data-lang="en">Languages</span><span data-lang="es">Idiomas</span></td><td><span data-lang="en">3 Native</span><span data-lang="es">3 Nativos</span></td><td><span data-lang="en">44 Generic</span><span data-lang="es">44 Genéricos</span></td><td><span data-lang="en">40 Generic</span><span data-lang="es">40 Genéricos</span></td></tr>
+                                <tr><td><span data-lang="en">Latency</span><span data-lang="es">Latencia</span></td><td class="font-bold text-green-600">&lt;50ms</td><td>~80ms</td><td>~100ms</td></tr>
+                                <tr><td><span data-lang="en">Price</span><span data-lang="es">Precio</span></td><td class="font-bold text-green-600">$0.01 CPM</td><td>$0.03 CPM</td><td>$0.03 CPM</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+             <section class="page-section bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold mb-4"><span data-lang="en">Technical Capabilities</span><span data-lang="es">Capacidades Técnicas</span></h2><p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">Enterprise-grade verification with cultural intelligence built in.</span><span data-lang="es">Verificación de nivel empresarial con inteligencia cultural incorporada.</span></p></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="metric-card" data-aos="fade-up" data-aos-delay="100"><div class="feature-icon"><i class="fas fa-eye"></i></div><h3 class="text-2xl font-bold mb-2"><span data-lang="en">Viewability</span><span data-lang="es">Visibilidad</span></h3><p class="text-gray-600"><span data-lang="en">Industry-standard viewability measurement with additional Hispanic-specific viewport optimizations.</span><span data-lang="es">Medición de visibilidad estándar de la industria con optimizaciones adicionales de viewport específicas para hispanos.</span></p><ul class="mt-4 space-y-2"><li class="flex items-center text-gray-600"><i class="fas fa-check text-purple-600 mr-2"></i><span><span data-lang="en">MRC accredited measurement</span><span data-lang="es">Medición acreditada por MRC</span></span></li><li class="flex items-center text-gray-600"><i class="fas fa-check text-purple-600 mr-2"></i><span><span data-lang="en">Reduces false positives by 22%</span><span data-lang="es">Reduce falsos positivos en un 22%</span></span></li><li class="flex items-center text-gray-600"><i class="fas fa-check text-purple-600 mr-2"></i><span><span data-lang="en">Mobile-optimized for Hispanic users</span><span data-lang="es">Optimizado para móviles para usuarios hispanos</span></span></li></ul></div>
+                        <div class="metric-card" data-aos="fade-up" data-aos-delay="200"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3 class="text-2xl font-bold mb-2"><span data-lang="en">Brand Safety</span><span data-lang="es">Seguridad de Marca</span></h3><p class="text-gray-600"><span data-lang="en">Next-gen brand safety with cultural context awareness for Hispanic content.</span><span data-lang="es">Seguridad de marca de última generación con conciencia del contexto cultural para contenido hispano.</span></p><ul class="mt-4 space-y-2"><li class="flex items-center text-gray-600"><i class="fas fa-check text-purple-600 mr-2"></i><span><span data-lang="en">698 IAB categories for precise classification</span><span data-lang="es">698 categorías IAB para clasificación precisa</span></span></li><li class="flex items-center text-gray-600"><i class="fas fa-check text-purple-600 mr-2"></i><span><span data-lang="en">Cultural context interpretation</span><span data-lang="es">Interpretación del contexto cultural</span></span></li><li class="flex items-center text-gray-600"><i class="fas fa-check text-purple-600 mr-2"></i><span><span data-lang="en">Bilingual content analysis</span><span data-lang="es">Análisis de contenido bilingüe</span></span></li></ul></div>
+                        <div class="metric-card" data-aos="fade-up" data-aos-delay="300"><div class="feature-icon"><i class="fas fa-chart-bar"></i></div><h3 class="text-2xl font-bold mb-2"><span data-lang="en">Cultural Analysis</span><span data-lang="es">Análisis Cultural</span></h3><p class="text-gray-600"><span data-lang="en">Proprietary metrics that measure cultural relevance for Hispanic audiences.</span><span data-lang="es">Métricas patentadas que miden la relevancia cultural para audiencias hispanas.</span></p><ul class="mt-4 space-y-2"><li class="flex items-center text-gray-600"><i class="fas fa-check text-purple-600 mr-2"></i><span>CRS (<span data-lang="en">Cultural Relevance Score</span><span data-lang="es">Puntuación de Relevancia Cultural</span>)</span></li><li class="flex items-center text-gray-600"><i class="fas fa-check text-purple-600 mr-2"></i><span><span data-lang="en">Regional cultural variation detection</span><span data-lang="es">Detección de variación cultural regional</span></span></li><li class="flex items-center text-gray-600"><i class="fas fa-check text-purple-600 mr-2"></i><span><span data-lang="en">Generational context awareness</span><span data-lang="es">Conciencia del contexto generacional</span></span></li></ul></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col md:flex-row items-center gap-12">
+                        <div class="md:w-1/2" data-aos="fade-right">
+                            <h2 class="text-4xl font-bold mb-4"><span data-lang="en">Easy Integration</span><span data-lang="es">Integración Fácil</span></h2>
+                            <p class="text-xl text-gray-600 mb-6"><span data-lang="en">CB-Pixel integrates seamlessly with your existing tech stack and workflows.</span><span data-lang="es">CB-Pixel se integra sin problemas con tu stack tecnológico y flujos de trabajo existentes.</span></p>
+                            <div class="space-y-6">
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-purple-600"><i class="fas fa-code text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Simple Implementation</span><span data-lang="es">Implementación Simple</span></h3><p class="text-gray-600"><span data-lang="en">One-line code snippet for website integration or server-to-server API for more advanced setups.</span><span data-lang="es">Fragmento de código de una línea para integración en sitios web o API de servidor a servidor para configuraciones más avanzadas.</span></p></div></div>
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-purple-600"><i class="fas fa-plug text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Pre-built Connectors</span><span data-lang="es">Conectores Preconstruidos</span></h3><p class="text-gray-600"><span data-lang="en">Ready-to-use integrations with major DSPs, SSPs, and ad servers including DV360, The Trade Desk, and more.</span><span data-lang="es">Integraciones listas para usar con los principales DSP, SSP y servidores de anuncios, incluidos DV360, The Trade Desk y más.</span></p></div></div>
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-purple-600"><i class="fas fa-chart-pie text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Real-time Reporting</span><span data-lang="es">Informes en Tiempo Real</span></h3><p class="text-gray-600"><span data-lang="en">Access verification data instantly through API, dashboard, or automated reports to any email address.</span><span data-lang="es">Accede a los datos de verificación al instante a través de API, panel de control o informes automatizados a cualquier dirección de correo electrónico.</span></p></div></div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2" data-aos="fade-left"><div class="bg-gray-900 rounded-lg p-6"><div class="flex items-center mb-4"><div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div><div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div><div class="w-3 h-3 rounded-full bg-green-500"></div></div><pre class="text-green-400 text-sm font-mono overflow-x-auto">// Server-to-server API Integration\n\nconst response = await fetch('https://api.hispano.io/v1/verify', {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    'Authorization': 'Bearer YOUR_API_KEY'\n  },\n  body: JSON.stringify({\n    url: 'https://example.com/article',\n    categories: ['news', 'finance'],\n    language: 'es',\n    cultural_context: true\n  })\n});\n\nconst data = await response.json();\nconsole.log(data);\n\n// Response contains:\n// - viewability score\n// - brand safety rating\n// - cultural relevance score (CRS)\n// - detailed category breakdown\n// - cultural audience affinities</pre></div></div>
+                    </div>
+                </div>
+            </section>
+             <section class="page-section bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold mb-4"><span data-lang="en">Certifications & Compliance</span><span data-lang="es">Certificaciones y Cumplimiento</span></h2><p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">CB-Pixel meets the highest industry standards for verification technology.</span><span data-lang="es">CB-Pixel cumple con los más altos estándares de la industria para la tecnología de verificación.</span></p></div>
+                    <div class="flex flex-wrap justify-center gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center w-48" data-aos="fade-up" data-aos-delay="100"><div class="h-20 flex items-center justify-center"><i class="fas fa-certificate text-5xl text-purple-600"></i></div><h3 class="text-xl font-bold mb-2">OMID</h3><p class="text-gray-600 text-sm"><span data-lang="en">Open Measurement SDK Certified</span><span data-lang="es">Certificado Open Measurement SDK</span></p></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center w-48" data-aos="fade-up" data-aos-delay="200"><div class="h-20 flex items-center justify-center"><i class="fas fa-check-circle text-5xl text-purple-600"></i></div><h3 class="text-xl font-bold mb-2">MRC</h3><p class="text-gray-600 text-sm"><span data-lang="en">Accreditation Pending</span><span data-lang="es">Acreditación Pendiente</span></p></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center w-48" data-aos="fade-up" data-aos-delay="300"><div class="h-20 flex items-center justify-center"><i class="fas fa-shield-alt text-5xl text-purple-600"></i></div><h3 class="text-xl font-bold mb-2">GDPR</h3><p class="text-gray-600 text-sm"><span data-lang="en">Fully Compliant</span><span data-lang="es">Totalmente Conforme</span></p></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center w-48" data-aos="fade-up" data-aos-delay="400"><div class="h-20 flex items-center justify-center"><i class="fas fa-lock text-5xl text-purple-600"></i></div><h3 class="text-xl font-bold mb-2">ISO 27001</h3><p class="text-gray-600 text-sm"><span data-lang="en">Security Certified</span><span data-lang="es">Certificado de Seguridad</span></p></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section gradient-bg text-white">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-6"><span data-lang="en">Ready to Verify Beyond the Surface?</span><span data-lang="es">¿Listo para Verificar Más Allá de la Superficie?</span></h2>
+                        <p class="text-xl opacity-90 mb-10"><span data-lang="en">Join the platforms and agencies using CB-Pixel to understand the cultural context of Hispanic content.</span><span data-lang="es">Únete a las plataformas y agencias que usan CB-Pixel para comprender el contexto cultural del contenido hispano.</span></p>
+                        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                            <button class="btn-primary bg-white text-purple-800 hover:bg-gray-100"><span data-lang="en">Get API Access</span><span data-lang="es">Obtener Acceso API</span></button>
+                            <button class="btn-secondary border-white text-white hover:bg-white hover:bg-opacity-10"><span data-lang="en">Technical Documentation</span><span data-lang="es">Documentación Técnica</span></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="bg-gray-900 text-white py-16">
+                <div class="container mx-auto px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <div class="md:col-span-2"><div class="flex items-center mb-6"><img src="https://www.culturalbrain.net/static/images/logo_hispano_01.png" alt="HISPAÑO" class="hispano-logo mr-3"><span class="text-xl">CB-Pixel</span></div><p class="opacity-70 mb-6"><span data-lang="en">Next-Gen Verification for Multicultural Advertising.</span><span data-lang="es">Verificación de Nueva Generación para Publicidad Multicultural.</span></p><div class="flex space-x-4"><a href="#" class="hover:text-accent"><i class="fab fa-linkedin text-xl"></i></a><a href="#" class="hover:text-accent"><i class="fab fa-twitter text-xl"></i></a><a href="#" class="hover:text-accent"><i class="fab fa-github text-xl"></i></a></div></div>
+                        <div><h3 class="text-lg font-bold mb-6"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></h3><ul class="space-y-3"><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">API Documentation</span><span data-lang="es">Documentación API</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Developer Hub</span><span data-lang="es">Centro de Desarrolladores</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Integration Guides</span><span data-lang="es">Guías de Integración</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">SDK Downloads</span><span data-lang="es">Descargas SDK</span></a></li></ul></div>
+                        <div><h3 class="text-lg font-bold mb-6"><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h3><ul class="space-y-3"><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">About HISPAÑO</span><span data-lang="es">Sobre HISPAÑO</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Contact Us</span><span data-lang="es">Contáctanos</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Careers</span><span data-lang="es">Carreras</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Partners</span><span data-lang="es">Socios</span></a></li></ul></div>
+                    </div>
+                    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"><p class="opacity-70 text-sm"><span data-lang="en">© 2023 HISPAÑO. All rights reserved.</span><span data-lang="es">© 2023 HISPAÑO. Todos los derechos reservados.</span></p><div class="flex space-x-6 mt-4 md:mt-0"><a href="#" class="text-sm opacity-70 hover:opacity-100"><span data-lang="en">Privacy Policy</span><span data-lang="es">Política de Privacidad</span></a><a href="#" class="text-sm opacity-70 hover:opacity-100"><span data-lang="en">Terms of Service</span><span data-lang="es">Términos de Servicio</span></a></div></div>
+                </div>
+            </footer>
+        </div>
+        
+        <div id="hispanic-network" class="page hidden-page">
+            <section class="min-h-screen flex items-center pt-24 bg-gradient-to-br from-teal-900 to-blue-900">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col lg:flex-row items-center">
+                        <div class="lg:w-1/2 text-white" data-aos="fade-right">
+                            <h1 class="text-5xl md:text-6xl font-bold mb-6"><span data-lang="en">Your Hispanic Content is Worth More</span><span data-lang="es">Tu Contenido Hispano Vale Más</span></h1>
+                            <p class="text-xl mb-8 opacity-90"><span data-lang="en">Join the first premium network that pays publishers what culturally relevant content truly deserves</span><span data-lang="es">Únete a la primera red premium que paga a los editores lo que el contenido culturalmente relevante realmente merece</span></p>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                <button class="btn-primary bg-white text-teal-800 hover:bg-gray-100"><span data-lang="en">Apply Now</span><span data-lang="es">Aplica Ahora</span></button>
+                                <button class="btn-secondary border-white text-white hover:bg-white hover:bg-opacity-10"><span data-lang="en">Calculate Your Earnings</span><span data-lang="es">Calcula tus Ganancias</span></button>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 mt-12 lg:mt-0" data-aos="fade-left"><div class="bg-white bg-opacity-10 rounded-lg p-6"><img src="https://www.genspark.ai/images/map.png" alt="Network Map" class="rounded-lg"></div></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold mb-4"><span data-lang="en">Publisher Benefits</span><span data-lang="es">Beneficios para Editores</span></h2><p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">Join our network of premium Hispanic publishers and unlock the true value of your content.</span><span data-lang="es">Únete a nuestra red de editores hispanos premium y desbloquea el verdadero valor de tu contenido.</span></p></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="metric-card" data-aos="fade-up" data-aos-delay="100"><div class="feature-icon"><i class="fas fa-dollar-sign"></i></div><h3 class="text-2xl font-bold mb-2"><span data-lang="en">Higher CPMs</span><span data-lang="es">CPMs Más Altos</span></h3><p class="text-gray-600"><span data-lang="en">Our publishers earn on average 40% more than with traditional ad networks.</span><span data-lang="es">Nuestros editores ganan en promedio un 40% más que con las redes publicitarias tradicionales.</span></p></div>
+                        <div class="metric-card" data-aos="fade-up" data-aos-delay="200"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3 class="text-2xl font-bold mb-2"><span data-lang="en">Premium Demand</span><span data-lang="es">Demanda Premium</span></h3><p class="text-gray-600"><span data-lang="en">Access Fortune 500 advertisers looking specifically for authentic Hispanic content.</span><span data-lang="es">Accede a anunciantes de Fortune 500 que buscan específicamente contenido hispano auténtico.</span></p></div>
+                        <div class="metric-card" data-aos="fade-up" data-aos-delay="300"><div class="feature-icon"><i class="fas fa-chart-bar"></i></div><h3 class="text-2xl font-bold mb-2"><span data-lang="en">Free Analytics</span><span data-lang="es">Analíticas Gratuitas</span></h3><p class="text-gray-600"><span data-lang="en">Get deep insights into your audience with our cultural analytics dashboard.</span><span data-lang="es">Obtén insights profundos sobre tu audiencia con nuestro panel de analíticas culturales.</span></p></div>
+                        <div class="metric-card" data-aos="fade-up" data-aos-delay="400"><div class="feature-icon"><i class="fas fa-plug"></i></div><h3 class="text-2xl font-bold mb-2"><span data-lang="en">Easy Integration</span><span data-lang="es">Integración Fácil</span></h3><p class="text-gray-600"><span data-lang="en">5-minute setup with all major CMSs and ad servers.</span><span data-lang="es">Configuración en 5 minutos con los principales CMS y servidores de anuncios.</span></p></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold mb-4"><span data-lang="en">Earnings Calculator</span><span data-lang="es">Calculadora de Ganancias</span></h2><p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">See how much more you could be earning with Hispanic Premium Network.</span><span data-lang="es">Vea cuánto más podría estar ganando con Hispanic Premium Network.</span></p></div>
+                    <div class="calculator-container" data-aos="fade-up">
+                        <h3 class="text-2xl font-bold mb-6"><span data-lang="en">Estimate Your Revenue</span><span data-lang="es">Estima tus Ingresos</span></h3>
+                        <div class="mb-8"><label class="block text-gray-700 mb-2 font-medium"><span data-lang="en">Monthly Pageviews</span><span data-lang="es">Páginas Vistas Mensuales</span></label><input type="range" min="10000" max="10000000" value="500000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" id="pageviewsSliderHPN"><div class="flex justify-between mt-2"><span class="text-sm text-gray-500">10K</span><span class="text-xl font-medium" id="pageviewsValueHPN">500,000</span><span class="text-sm text-gray-500">10M</span></div></div>
+                        <div class="mb-8"><label class="block text-gray-700 mb-2 font-medium"><span data-lang="en">Current CPM ($)</span><span data-lang="es">CPM Actual ($)</span></label><input type="range" min="0.5" max="10" step="0.1" value="2" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" id="cpmSliderHPN"><div class="flex justify-between mt-2"><span class="text-sm text-gray-500">$0.50</span><span class="text-xl font-medium" id="cpmValueHPN">$2.00</span><span class="text-sm text-gray-500">$10.00</span></div></div>
+                        <div class="calculator-result">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div><div class="text-gray-600 mb-1"><span data-lang="en">Current Monthly Revenue</span><span data-lang="es">Ingresos Mensuales Actuales</span></div><div class="text-3xl font-bold" id="currentRevenueHPN">$1,000</div></div>
+                                <div><div class="text-gray-600 mb-1"><span data-lang="en">HPN Monthly Revenue</span><span data-lang="es">Ingresos Mensuales HPN</span></div><div class="text-3xl font-bold text-teal-600" id="hpnRevenueHPN">$1,400</div></div>
+                                <div><div class="text-gray-600 mb-1"><span data-lang="en">Additional Monthly Revenue</span><span data-lang="es">Ingresos Mensuales Adicionales</span></div><div class="text-3xl font-bold text-green-600" id="additionalRevenueHPN">+$400</div></div>
+                                <div><div class="text-gray-600 mb-1"><span data-lang="en">Annual Impact</span><span data-lang="es">Impacto Anual</span></div><div class="text-3xl font-bold text-green-600" id="annualImpactHPN">+$4,800</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold mb-4"><span data-lang="en">How It Works</span><span data-lang="es">Cómo Funciona</span></h2><p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">Get started with Hispanic Premium Network in three simple steps.</span><span data-lang="es">Comienza con Hispanic Premium Network en tres sencillos pasos.</span></p></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="100"><div class="w-20 h-20 mx-auto rounded-full bg-teal-100 flex items-center justify-center mb-6"><span class="text-3xl font-bold text-teal-600">1</span></div><h3 class="text-2xl font-bold mb-4"><span data-lang="en">Apply</span><span data-lang="es">Aplica</span></h3><p class="text-gray-600"><span data-lang="en">Fill out our simple application form to tell us about your Hispanic content and audience.</span><span data-lang="es">Completa nuestro sencillo formulario de solicitud para contarnos sobre tu contenido y audiencia hispana.</span></p></div>
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="200"><div class="w-20 h-20 mx-auto rounded-full bg-teal-100 flex items-center justify-center mb-6"><span class="text-3xl font-bold text-teal-600">2</span></div><h3 class="text-2xl font-bold mb-4"><span data-lang="en">Integrate</span><span data-lang="es">Integra</span></h3><p class="text-gray-600"><span data-lang="en">Add our lightweight tag to your site (or use your existing ad tags) to start monetizing.</span><span data-lang="es">Agrega nuestra etiqueta ligera a tu sitio (o usa tus etiquetas de anuncios existentes) para comenzar a monetizar.</span></p></div>
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="300"><div class="w-20 h-20 mx-auto rounded-full bg-teal-100 flex items-center justify-center mb-6"><span class="text-3xl font-bold text-teal-600">3</span></div><h3 class="text-2xl font-bold mb-4"><span data-lang="en">Earn More</span><span data-lang="es">Gana Más</span></h3><p class="text-gray-600"><span data-lang="en">Watch your revenue increase as premium brands pay top dollar for your culturally relevant inventory.</span><span data-lang="es">Observa cómo aumentan tus ingresos a medida que las marcas premium pagan el máximo por tu inventario culturalmente relevante.</span></p></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold mb-4"><span data-lang="en">Our Publishers</span><span data-lang="es">Nuestros Editores</span></h2><p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">Join a growing network of premium Hispanic publishers across various verticals.</span><span data-lang="es">Únete a una creciente red de editores hispanos premium en diversos verticales.</span></p></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="100"><div class="text-xl font-bold mb-2">El Diario NY</div><div class="text-sm text-teal-600 mb-4"><span data-lang="en">News</span><span data-lang="es">Noticias</span></div><p class="text-gray-600 mb-6"><span data-lang="en">"Hispanic Premium Network helped us increase our CPMs by 42% while bringing in higher quality advertisers for our audience."</span><span data-lang="es">"Hispanic Premium Network nos ayudó a aumentar nuestros CPM en un 42% mientras atraía anunciantes de mayor calidad para nuestra audiencia."</span></p><div class="text-sm text-gray-500"><span data-lang="en">3.2M Monthly Visitors</span><span data-lang="es">3.2M Visitantes Mensuales</span></div></div>
+                        <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="200"><div class="text-xl font-bold mb-2">Mundo Deportivo USA</div><div class="text-sm text-teal-600 mb-4"><span data-lang="en">Sports</span><span data-lang="es">Deportes</span></div><p class="text-gray-600 mb-6"><span data-lang="en">"Our revenue increased by 38% in the first three months with HPN. The integration was seamless."</span><span data-lang="es">"Nuestros ingresos aumentaron un 38% en los primeros tres meses con HPN. La integración fue perfecta."</span></p><div class="text-sm text-gray-500"><span data-lang="en">5.7M Monthly Visitors</span><span data-lang="es">5.7M Visitantes Mensuales</span></div></div>
+                        <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="300"><div class="text-xl font-bold mb-2">Cocina Deliciosa</div><div class="text-sm text-teal-600 mb-4"><span data-lang="en">Food & Cooking</span><span data-lang="es">Comida y Cocina</span></div><p class="text-gray-600 mb-6"><span data-lang="en">"HPN understands the value of Hispanic food content. We've seen a 45% boost in revenue since joining."</span><span data-lang="es">"HPN entiende el valor del contenido de comida hispana. Hemos visto un aumento del 45% en los ingresos desde que nos unimos."</span></p><div class="text-sm text-gray-500"><span data-lang="en">2.8M Monthly Visitors</span><span data-lang="es">2.8M Visitantes Mensuales</span></div></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold mb-4"><span data-lang="en">For Advertisers</span><span data-lang="es">Para Anunciantes</span></h2><p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-lang="en">Access authentic Hispanic audiences at scale through our premium publisher network.</span><span data-lang="es">Accede a audiencias hispanas auténticas a escala a través de nuestra red de editores premium.</span></p></div>
+                    <div class="flex flex-col md:flex-row items-center gap-12">
+                        <div class="md:w-1/2" data-aos="fade-right">
+                            <div class="space-y-6">
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-teal-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Premium Hispanic Inventory</span><span data-lang="es">Inventario Hispano Premium</span></h3><p class="text-gray-600"><span data-lang="en">Access a curated network of authentic Hispanic publishers across news, entertainment, sports, food, and more.</span><span data-lang="es">Accede a una red curada de editores hispanos auténticos en noticias, entretenimiento, deportes, comida y más.</span></p></div></div>
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-teal-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Cultural Targeting</span><span data-lang="es">Segmentación Cultural</span></h3><p class="text-gray-600"><span data-lang="en">Target by generation, region, language preference, cultural interests, and more with our proprietary segments.</span><span data-lang="es">Segmenta por generación, región, preferencia de idioma, intereses culturales y más con nuestros segmentos patentados.</span></p></div></div>
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-teal-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Programmatic Integration</span><span data-lang="es">Integración Programática</span></h3><p class="text-gray-600"><span data-lang="en">Buy through your preferred DSP or directly through our platform with PMP deals or guaranteed placements.</span><span data-lang="es">Compra a través de tu DSP preferido o directamente a través de nuestra plataforma con acuerdos PMP o ubicaciones garantizadas.</span></p></div></div>
+                                <div class="flex items-start"><div class="mt-1 mr-4 text-teal-500"><i class="fas fa-check-circle text-2xl"></i></div><div><h3 class="text-xl font-bold mb-2"><span data-lang="en">Verified Performance</span><span data-lang="es">Rendimiento Verificado</span></h3><p class="text-gray-600"><span data-lang="en">All inventory is verified by CB-Pixel for viewability, brand safety, and cultural relevance.</span><span data-lang="es">Todo el inventario es verificado por CB-Pixel para visibilidad, seguridad de marca y relevancia cultural.</span></p></div></div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2" data-aos="fade-left"><img src="https://www.genspark.ai/images/dashboard-example.png" alt="Advertiser Dashboard" class="rounded-lg shadow-lg"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-section gradient-bg text-white">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-6"><span data-lang="en">Ready to Maximize Your Hispanic Content Value?</span><span data-lang="es">¿Listo para Maximizar el Valor de tu Contenido Hispano?</span></h2>
+                        <p class="text-xl opacity-90 mb-10"><span data-lang="en">Join the leading Hispanic publishers who are earning what their content truly deserves.</span><span data-lang="es">Únete a los principales editores hispanos que están ganando lo que su contenido realmente merece.</span></p>
+                        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                            <button class="btn-primary bg-white text-teal-800 hover:bg-gray-100"><span data-lang="en">Apply Now</span><span data-lang="es">Aplica Ahora</span></button>
+                            <button class="btn-secondary border-white text-white hover:bg-white hover:bg-opacity-10"><span data-lang="en">Calculate Your Earnings</span><span data-lang="es">Calcula tus Ganancias</span></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="bg-gray-900 text-white py-16">
+                <div class="container mx-auto px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <div class="md:col-span-2"><div class="flex items-center mb-6"><img src="https://www.culturalbrain.net/static/images/logo_hispano_01.png" alt="HISPAÑO" class="hispano-logo mr-3"><span class="text-xl">Hispanic Premium Network</span></div><p class="opacity-70 mb-6"><span data-lang="en">The First Certified Hispanic Publisher Network</span><span data-lang="es">La Primera Red Certificada de Editores Hispanos</span></p><div class="flex space-x-4"><a href="#" class="hover:text-accent"><i class="fab fa-linkedin text-xl"></i></a><a href="#" class="hover:text-accent"><i class="fab fa-twitter text-xl"></i></a><a href="#" class="hover:text-accent"><i class="fab fa-instagram text-xl"></i></a></div></div>
+                        <div><h3 class="text-lg font-bold mb-6"><span data-lang="en">For Publishers</span><span data-lang="es">Para Editores</span></h3><ul class="space-y-3"><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Apply Now</span><span data-lang="es">Aplica Ahora</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Publisher FAQ</span><span data-lang="es">FAQ Editores</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Integration Guide</span><span data-lang="es">Guía de Integración</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Payment Terms</span><span data-lang="es">Términos de Pago</span></a></li></ul></div>
+                        <div><h3 class="text-lg font-bold mb-6"><span data-lang="en">For Advertisers</span><span data-lang="es">Para Anunciantes</span></h3><ul class="space-y-3"><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Media Kit</span><span data-lang="es">Kit de Medios</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Contact Sales</span><span data-lang="es">Contactar Ventas</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Audience Segments</span><span data-lang="es">Segmentos de Audiencia</span></a></li><li><a href="#" class="opacity-70 hover:opacity-100"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a></li></ul></div>
+                    </div>
+                    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"><p class="opacity-70 text-sm"><span data-lang="en">© 2023 HISPAÑO. All rights reserved.</span><span data-lang="es">© 2023 HISPAÑO. Todos los derechos reservados.</span></p><div class="flex space-x-6 mt-4 md:mt-0"><a href="#" class="text-sm opacity-70 hover:opacity-100"><span data-lang="en">Privacy Policy</span><span data-lang="es">Política de Privacidad</span></a><a href="#" class="text-sm opacity-70 hover:opacity-100"><span data-lang="en">Terms of Service</span><span data-lang="es">Términos de Servicio</span></a></div></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Define DOM element variables that are used by multiple functions or early on
+            const currentLangBtn = document.getElementById('currentLangBtn');
+            const currentLangFlag = document.getElementById('currentLangFlag');
+            const currentLangText = document.getElementById('currentLangText');
+            const allPages = document.querySelectorAll('.page');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            let marketChartInstance; 
+
+            // 2. Define constants like chartLabels
+            const chartLabels = {
+                en: { marketSize: 'Hispanic Digital Market Size ($B)', yAxis: 'Billions USD' },
+                es: { marketSize: 'Tamaño del Mercado Digital Hispano ($B)', yAxis: 'Miles de Millones USD' }
+            };
+
+            // 3. Define helper functions
+            function adjustLangBtnStyleForPage(pageId) {
+                const langBtnClasses = ['language-btn'];
+                if (pageId === 'home' || pageId === 'cultural-brain' || pageId === 'cb-pixel' || pageId === 'hispanic-network') { 
+                    const currentPageElement = document.getElementById(pageId);
+                    if (currentPageElement) {
+                        const heroSection = currentPageElement.querySelector('section:first-child'); 
+                        if (heroSection && (heroSection.classList.contains('gradient-bg') || (heroSection.style && heroSection.style.backgroundImage && heroSection.style.backgroundImage.includes('gradient')))) {
+                             langBtnClasses.push('on-dark-bg');
+                        }
+                    }
+                }
+                 if (currentLangBtn) currentLangBtn.className = langBtnClasses.join(' ');
+            }
+
+            window.showPage = function(pageId) { // Make global for router
+                allPages.forEach(page => {
+                    page.classList.add('hidden-page');
+                    page.classList.remove('active-page', 'fade-in');
+                });
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.remove('hidden-page');
+                    targetPage.classList.add('active-page');
+                    setTimeout(() => targetPage.classList.add('fade-in'), 50);
+                    window.scrollTo(0, 0);
+                    AOS.refreshHard();
+                    adjustLangBtnStyleForPage(pageId);
+
+                    if (pageId === 'home') {
+                        const marketCtx = document.getElementById('marketChart');
+                        if(marketCtx) {
+                           if (marketChartInstance) { // Destroy existing chart if it exists
+                                marketChartInstance.destroy();
+                           }
+                            marketChartInstance = new Chart(marketCtx, {
+                                type: 'bar',
+                                data: {
+                                    labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+                                    datasets: [{
+                                        label: chartLabels[document.documentElement.lang || 'en'].marketSize,
+                                        data: [2100, 2400, 2650, 2800, 3000, 3200],
+                                        backgroundColor: 'rgba(45, 212, 191, 0.7)',
+                                        borderColor: 'rgba(45, 212, 191, 1)',
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: false, min: 2000, title: { display: true, text: chartLabels[document.documentElement.lang || 'en'].yAxis }}}}
+                            });
+                         }
+                    }
+                }
+            };
+
+            // 4. Define changeLanguage and make it global
+            window.changeLanguage = function(lang) {
+                document.body.className = `cultural-pattern lang-${lang}`;
+                
+                const currentHash = window.location.hash.substring(2) || 'home';
+                adjustLangBtnStyleForPage(currentHash); 
+
+                if (lang === 'es') {
+                    if (currentLangFlag) currentLangFlag.src = 'https://flagcdn.com/w20/es.png';
+                    if (currentLangFlag) currentLangFlag.alt = 'ES';
+                    if (currentLangText) currentLangText.textContent = 'ES';
+                    document.title = 'HISPAÑO - Impulsando la Economía Digital Hispana';
+                    document.querySelector('meta[name="description"]').setAttribute("content", "La infraestructura de inteligencia para el mercado digital hispano de $3.2 billones. Cultural Brain, CB-Pixel y Hispanic Premium Network - donde la cultura se encuentra con la tecnología.");
+                    if (marketChartInstance) {
+                        marketChartInstance.data.datasets[0].label = chartLabels['es'].marketSize;
+                        marketChartInstance.options.scales.y.title.text = chartLabels['es'].yAxis;
+                        marketChartInstance.update();
+                    }
+                } else { // 'en'
+                    if (currentLangFlag) currentLangFlag.src = 'https://flagcdn.com/w20/us.png';
+                    if (currentLangFlag) currentLangFlag.alt = 'EN';
+                    if (currentLangText) currentLangText.textContent = 'EN';
+                    document.title = 'HISPAÑO - Powering the Hispanic Digital Economy';
+                    document.querySelector('meta[name="description"]').setAttribute("content", "The intelligence infrastructure for the $3.2 trillion Hispanic digital market. Cultural Brain, CB-Pixel, and Hispanic Premium Network - where culture meets technology.");
+                     if (marketChartInstance) {
+                        marketChartInstance.data.datasets[0].label = chartLabels['en'].marketSize;
+                        marketChartInstance.options.scales.y.title.text = chartLabels['en'].yAxis;
+                        marketChartInstance.update();
+                    }
+                }
+                
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.classList.remove('active');
+                    if (option.getAttribute('onclick') && option.getAttribute('onclick').includes(`changeLanguage('${lang}')`)) {
+                        option.classList.add('active');
+                    }
+                });
+                
+                localStorage.setItem('hispano-lang', lang);
+                document.documentElement.lang = lang;
+            };
+
+            // 5. Initialize AOS, Router, other event listeners, and initial language setting
+            AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+            const router = new Navigo('/');
+            
+            router
+                .on('/', function() { window.showPage('home'); })
+                .on('/cultural-brain', function() { window.showPage('cultural-brain'); })
+                .on('/cb-pixel', function() { window.showPage('cb-pixel'); })
+                .on('/hispanic-network', function() { window.showPage('hispanic-network'); })
+                .notFound(function() { window.showPage('home'); }) 
+                .resolve(); 
+            
+            animateCounter('consumer-counter', 0, 62, 'M+', 2000);
+            animateCounter('market-counter', 0, 3.2, 'T', 2500, '$');
+            animateCounter('categories-counter', 0, 698, '', 3000);
+            animateCounter('accuracy-counter', 0, 99.2, '%', 3500);
+            
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            if (mobileMenuBtn && mobileMenu && mobileMenuClose) {
+                mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+                mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('active'));
+                document.querySelectorAll('.mobile-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                         mobileMenu.classList.remove('active');
+                         const href = link.getAttribute('href');
+                         if (href && href.startsWith('#/')) {
+                             router.navigate(href); 
+                         }
+                    });
+                });
+            }
+            initHICEVisual();
+            initCalculator('pageviewsSliderHPN', 'pageviewsValueHPN', 'cpmSliderHPN', 'cpmValueHPN', 'currentRevenueHPN', 'hpnRevenueHPN', 'additionalRevenueHPN', 'annualImpactHPN');
+            // The first calculator's IDs were generic, make sure they exist or are different
+            // For now, assuming the HPN calculator is the one with these specific IDs. If there's another, it needs unique IDs.
+
+            const savedLang = localStorage.getItem('hispano-lang') || 'en';
+            window.changeLanguage(savedLang); 
+
+            window.addEventListener('hashchange', function() {
+                const newHash = window.location.hash.substring(2) || 'home';
+                adjustLangBtnStyleForPage(newHash);
+                if (mobileMenu) mobileMenu.classList.remove('active');
+            });
+            // Initial page load will trigger router.resolve(), which calls showPage, which calls adjustLangBtnStyleForPage
+        }); 
+        
+        function animateCounter(id, start, end, suffix = '', duration = 2000, prefix = '') {
+            const element = document.getElementById(id);
+            if (!element) return;
+            let current = start; const increment = (end - start) / (duration / 16);
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                    clearInterval(timer); current = end;
+                }
+                element.textContent = `${prefix}${Number.isInteger(end) ? Math.floor(current) : current.toFixed(1)}${suffix}`;
+            }, 16);
+        }
+        
+        function initHICEVisual() {
+            const visualization = document.getElementById('hice-visualization');
+            if (!visualization) return;
+            setTimeout(() => {
+                const loader = visualization.querySelector('.loader');
+                if (loader) { loader.style.opacity = '0'; setTimeout(() => { loader.remove(); drawConnectors(); }, 500); }
+            }, 2000);
+        }
+        
+        function drawConnectors() {
+            const visualization = document.getElementById('hice-visualization');
+            if (!visualization || !visualization.querySelector('.content-node')) return; 
+            visualization.querySelectorAll('.connector').forEach(conn => conn.remove());
+            const nodes = Array.from(visualization.querySelectorAll('.content-node'));
+            if (nodes.length < 2) return;
+            for (let i = 0; i < nodes.length; i++) { 
+                for (let j = i + 1; j < nodes.length; j++) { 
+                     createConnector(nodes[i], nodes[j], visualization);
+                }
+            }
+        }
+        
+        function createConnector(node1, node2, parent) {
+            const rect1 = node1.getBoundingClientRect(); const rect2 = node2.getBoundingClientRect(); const parentRect = parent.getBoundingClientRect();
+            const x1 = rect1.left + rect1.width / 2 - parentRect.left; const y1 = rect1.top + rect1.height / 2 - parentRect.top;
+            const x2 = rect2.left + rect2.width / 2 - parentRect.left; const y2 = rect2.top + rect2.height / 2 - parentRect.top;
+            const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)); const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+            const connector = document.createElement('div'); connector.className = 'connector';
+            connector.style.width = `${length}px`; connector.style.left = `${x1}px`; connector.style.top = `${y1}px`; connector.style.transform = `rotate(${angle}deg)`;
+            parent.appendChild(connector);
+        }
+        
+        function initCalculator(pageviewsSliderId, pageviewsValueId, cpmSliderId, cpmValueId, currentRevenueId, hpnRevenueId, additionalRevenueId, annualImpactId) {
+            const pageviewsSlider = document.getElementById(pageviewsSliderId); const pageviewsValue = document.getElementById(pageviewsValueId);
+            const cpmSlider = document.getElementById(cpmSliderId); const cpmValue = document.getElementById(cpmValueId);
+            const currentRevenue = document.getElementById(currentRevenueId); const hpnRevenue = document.getElementById(hpnRevenueId);
+            const additionalRevenue = document.getElementById(additionalRevenueId); const annualImpact = document.getElementById(annualImpactId);
+            if (!pageviewsSlider || !cpmSlider || !currentRevenue) return; 
+            function updateCalculator() {
+                const pageviews = parseInt(pageviewsSlider.value); const cpm = parseFloat(cpmSlider.value);
+                pageviewsValue.textContent = pageviews.toLocaleString(); cpmValue.textContent = `$${cpm.toFixed(2)}`;
+                const current = (pageviews / 1000) * cpm; const hpn = current * 1.4; const additional = hpn - current; const annual = additional * 12;
+                currentRevenue.textContent = `$${Math.round(current).toLocaleString()}`; hpnRevenue.textContent = `$${Math.round(hpn).toLocaleString()}`;
+                additionalRevenue.textContent = `+$${Math.round(additional).toLocaleString()}`; annualImpact.textContent = `+$${Math.round(annual).toLocaleString()}`;
+            }
+            pageviewsSlider.addEventListener('input', updateCalculator); cpmSlider.addEventListener('input', updateCalculator);
+            updateCalculator();
+        }
+    </script>
+</body>
+</html>

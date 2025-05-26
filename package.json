@@ -1,0 +1,23 @@
+{
+  "name": "hispano-landings",
+  "version": "1.0.0",
+  "description": "HISPAÑO Ecosystem Landing Pages - hispan.io, pixel.hispan.io, network.hispan.io",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static files ready for deployment'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "hispano",
+    "cultural-brain",
+    "culture-sight",
+    "hispanic-premium-network",
+    "landing-pages"
+  ],
+  "author": "Pablo Peirone",
+  "license": "MIT",
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}

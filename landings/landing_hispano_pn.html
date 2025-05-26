@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hispanic Premium Network | The First Certified Hispanic Publisher Network</title>
+    <meta name="description" content="The First Certified Hispanic Publisher Network - Higher CPMs for publishers, authentic cultural reach for advertisers.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #6d1b8f;
+            --accent: #2dd4bf;
+            --orange: #f27044;
+            --text-dark: #1f2937;
+            --bg-light: #e5e7eb;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--text-dark);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #4c1d95, #1e3a8a);
+        }
+        
+        .gradient-accent {
+            background: linear-gradient(135deg, #6d1b8f, #1e3a8a);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #15307a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5d1578;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-orange {
+            background-color: var(--orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-orange:hover {
+            background-color: #e25a2e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-tab {
+            cursor: pointer;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease-in; }
+        
+        .benefit-icon { width: 60px; height: 60px; background-color: rgba(30, 58, 138, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; transition: all 0.3s ease; }
+        .card:hover .benefit-icon { background-color: var(--primary); }
+        .card:hover .benefit-icon i { color: white; }
+        .benefit-icon i { color: var(--primary); font-size: 1.5rem; transition: all 0.3s ease; }
+        
+        .step-number { width: 50px; height: 50px; background-color: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 1.5rem; font-size: 1.25rem; box-shadow: 0 4px 8px rgba(30, 58, 138, 0.3); }
+        
+        .metric-card { border-left: 4px solid var(--accent); padding-left: 1rem; transition: all 0.3s ease; }
+        .metric-card:hover { background-color: rgba(45, 212, 191, 0.05); transform: translateX(5px); }
+        
+        .range-slider { width: 100%; margin: 1rem 0; }
+        .range-slider input { width: 100%; -webkit-appearance: none; height: 10px; border-radius: 5px; background: #d3d3d3; outline: none; }
+        .range-slider input::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 2px 6px rgba(30, 58, 138, 0.4); }
+        .range-slider input::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 2px 6px rgba(30, 58, 138, 0.4); }
+        
+        .comparison-arrows { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background-color: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 10; }
+        
+        .timeline-progress { position: absolute; top: 0; left: 0; height: 1px; background: var(--primary); width: 0; transition: width 1.5s ease; }
+        .timeline-node { position: relative; transition: all 0.3s ease; }
+        .timeline-node:hover { transform: scale(1.1); }
+        .timeline-node-circle { transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(30, 58, 138, 0.3); }
+        .timeline-node.active .timeline-node-circle { background-color: var(--orange); transform: scale(1.2); }
+        
+        .map-marker { transition: all 0.3s ease; cursor: pointer; }
+        .map-marker:hover { transform: scale(1.2); }
+        .map-tooltip { position: absolute; background: white; padding: 0.75rem; border-radius: 0.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 100; display: none; }
+        
+        .fade-in { animation: fadeIn 0.8s ease-in; }
+        .slide-in-right { animation: slideInRight 0.8s ease-out; }
+        .slide-in-left { animation: slideInLeft 0.8s ease-out; }
+        .pulse { animation: pulse 2s infinite; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        
+        .acento-n { position: relative; }
+        .acento-n::after { content: ''; position: absolute; top: -10px; right: -4px; width: 15px; height: 10px; background-color: var(--orange); border-radius: 50px 50px 0 0; }
+        
+        .sticky-nav { position: sticky; top: 0; z-index: 50; transition: all 0.3s ease; }
+        
+        .testimonial-card { position: relative; overflow: hidden; transition: all 0.3s ease; }
+        .testimonial-card::before { content: '"'; position: absolute; font-size: 8rem; opacity: 0.1; top: -20px; left: 10px; font-family: 'Space Grotesk', sans-serif; }
+        .testimonial-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
+        
+        .logo-cloud { filter: grayscale(1); opacity: 0.7; transition: all 0.3s ease; }
+        .logo-cloud:hover { filter: grayscale(0); opacity: 1; }
+        
+        .usa-map-container { position: relative; width: 100%; height: 300px; background-color: rgba(30, 58, 138, 0.05); border-radius: 0.75rem; overflow: hidden; }
+        .usa-map-dot { position: absolute; width: 12px; height: 12px; background-color: var(--secondary); border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 4px rgba(109, 27, 143, 0.2); transition: all 0.3s ease; }
+        .usa-map-dot::before { content: ""; position: absolute; top: 50%; left: 50%; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(109, 27, 143, 0.15); transform: translate(-50%, -50%); animation: pulse 2s infinite; }
+        .usa-map-dot:hover { width: 16px; height: 16px; background-color: var(--orange); z-index: 10; }
+        
+        .ripple { position: absolute; width: 120%; height: 120%; border-radius: 50%; border: 2px solid var(--secondary); opacity: 0; animation: rippleEffect 2s infinite; }
+        @keyframes rippleEffect { 0% { transform: scale(0.8); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+
+        /* Language Switcher Styles */
+        .language-switcher { position: relative; display: inline-block; }
+        .language-btn { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; font-weight: 500; }
+        .language-btn:hover { border-color: var(--secondary); background: rgba(109, 27, 143, 0.05); color: var(--secondary); }
+        .language-flag { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
+        .language-dropdown { position: absolute; top: 100%; right: 0; margin-top: 0.5rem; background: white; border: 1px solid #e5e7eb; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1000; min-width: 150px; }
+        .language-switcher:hover .language-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .language-option { padding: 0.75rem 1.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.75rem; transition: all 0.2s ease; color: #333; }
+        .language-option:hover { background: rgba(23, 60, 103, 0.05); }
+        .language-option.active { background: rgba(23, 60, 103, 0.1); color: var(--primary); font-weight: bold; }
+        
+        [data-lang]:not([data-lang="en"]) { display: none; }
+        body.lang-es [data-lang="en"] { display: none; }
+        body.lang-es [data-lang="es"] { display: initial; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm py-4 sticky-nav">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-3xl font-bold mr-2" style="color: #173c67;">
+                    <span>HISPA<span class="acento-n">Ñ</span>O</span>
+                </div>
+                <span class="mx-2 text-gray-400">|</span>
+                <div>
+                    <h2 class="text-xl font-semibold" style="color: #173c67;">
+                        <span data-lang="en">Hispanic Premium Network</span>
+                        <span data-lang="es">Red Premium Hispana</span>
+                    </h2>
+                    <p class="text-xs text-gray-500">
+                        <span data-lang="en">Premium Content, Premium Value</span>
+                        <span data-lang="es">Contenido Premium, Valor Premium</span>
+                    </p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center">
+                <a href="#for-publishers" class="mx-3 hover:text-blue-800 font-medium transition-all duration-300"><span data-lang="en">For Publishers</span><span data-lang="es">Para Editores</span></a>
+                <a href="#for-advertisers" class="mx-3 hover:text-blue-800 font-medium transition-all duration-300"><span data-lang="en">For Advertisers</span><span data-lang="es">Para Anunciantes</span></a>
+                <a href="#process" class="mx-3 hover:text-blue-800 font-medium transition-all duration-300"><span data-lang="en">How It Works</span><span data-lang="es">Cómo Funciona</span></a>
+                <a href="#testimonials" class="mx-3 hover:text-blue-800 font-medium transition-all duration-300"><span data-lang="en">Success Stories</span><span data-lang="es">Casos de Éxito</span></a>
+                
+                <div class="language-switcher ml-4">
+                    <button class="language-btn" id="currentLangBtn">
+                        <img src="https://flagcdn.com/w20/us.png" alt="EN" class="language-flag" id="currentLangFlag">
+                        <span id="currentLangText">EN</span>
+                        <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option active" onclick="changeLanguage('en')">
+                            <img src="https://flagcdn.com/w20/us.png" alt="English" class="language-flag">
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('es')">
+                            <img src="https://flagcdn.com/w20/es.png" alt="Español" class="language-flag">
+                            <span>Español</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="flex items-center">
+                 <a href="#contact" class="btn-primary hidden md:inline-block ml-4"><span data-lang="en">Get Started</span><span data-lang="es">Comenzar</span></a>
+                <button class="md:hidden focus:outline-none ml-4" id="mobile-menu-button">
+                    <i class="fas fa-bars text-gray-800 text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="md:hidden bg-white shadow-md py-3 px-4 hidden" id="mobile-menu">
+        <nav class="flex flex-col space-y-3">
+            <a href="#for-publishers" class="hover:text-blue-800 font-medium"><span data-lang="en">For Publishers</span><span data-lang="es">Para Editores</span></a>
+            <a href="#for-advertisers" class="hover:text-blue-800 font-medium"><span data-lang="en">For Advertisers</span><span data-lang="es">Para Anunciantes</span></a>
+            <a href="#process" class="hover:text-blue-800 font-medium"><span data-lang="en">How It Works</span><span data-lang="es">Cómo Funciona</span></a>
+            <a href="#testimonials" class="hover:text-blue-800 font-medium"><span data-lang="en">Success Stories</span><span data-lang="es">Casos de Éxito</span></a>
+            <a href="#contact" class="btn-primary inline-block text-center mt-2"><span data-lang="en">Get Started</span><span data-lang="es">Comenzar</span></a>
+        </nav>
+    </div>
+
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10 fade-in">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    <span data-lang="en">The First Certified Hispanic Publisher Network</span>
+                    <span data-lang="es">La Primera Red Certificada de Editores Hispanos</span>
+                </h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
+                    <span data-lang="en">Connecting premium Hispanic content with brands who value cultural authenticity</span>
+                    <span data-lang="es">Conectando contenido hispano premium con marcas que valoran la autenticidad cultural</span>
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-t-lg overflow-hidden shadow">
+                <div class="flex text-gray-800">
+                    <div class="nav-tab active w-1/2 text-center" id="publisher-tab" onclick="switchTab('publisher')">
+                        <span data-lang="en">I'm a Publisher</span>
+                        <span data-lang="es">Soy Editor</span>
+                    </div>
+                    <div class="nav-tab w-1/2 text-center" id="advertiser-tab" onclick="switchTab('advertiser')">
+                        <span data-lang="en">I'm an Advertiser</span>
+                        <span data-lang="es">Soy Anunciante</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-b-lg shadow p-8">
+                <div class="tab-content active" id="publisher-content">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4"><span data-lang="en">Your Hispanic Content is Worth More</span><span data-lang="es">Tu Contenido Hispano Vale Más</span></h2>
+                    <p class="text-gray-600 mb-6"><span data-lang="en">Join the first premium network that pays publishers what culturally relevant content truly deserves. Our publishers earn an average of 40% more revenue with our culturally-verified inventory.</span><span data-lang="es">Únete a la primera red premium que paga a los editores lo que el contenido culturalmente relevante realmente merece. Nuestros editores ganan en promedio un 40% más de ingresos con nuestro inventario culturalmente verificado.</span></p>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg mb-8 shadow-inner">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4"><span data-lang="en">Earnings Calculator</span><span data-lang="es">Calculadora de Ingresos</span></h3>
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center">
+                                <label class="block text-gray-700 mb-2"><span data-lang="en">Your monthly pageviews</span><span data-lang="es">Tus vistas de página mensuales</span></label>
+                                <div class="text-sm bg-blue-50 text-blue-800 py-1 px-3 rounded-full font-medium"><span id="pageviews-value-display">500,000</span> <span data-lang="en">pageviews</span><span data-lang="es">vistas</span></div>
+                            </div>
+                            <div class="range-slider"><input type="range" min="10000" max="10000000" value="500000" class="slider" id="pageviews-range"></div>
+                            <div class="flex justify-between"><span class="text-sm text-gray-500">10K</span><span class="text-sm font-medium" id="pageviews-value-label">500,000</span><span class="text-sm text-gray-500">10M</span></div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center">
+                                <label class="block text-gray-700 mb-2"><span data-lang="en">Current RPM (Revenue Per Mille)</span><span data-lang="es">RPM Actual (Ingresos por Mil)</span></label>
+                                <div class="text-sm bg-blue-50 text-blue-800 py-1 px-3 rounded-full font-medium">$<span id="current-rpm-display">5.00</span></div>
+                            </div>
+                            <div class="range-slider"><input type="range" min="1" max="10" step="0.5" value="5" class="slider" id="rpm-range"></div>
+                            <div class="flex justify-between"><span class="text-sm text-gray-500">$1</span><span class="text-sm font-medium" id="rpm-value-label">$5.00</span><span class="text-sm text-gray-500">$10</span></div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6 mt-8 relative">
+                            <div class="bg-white p-6 rounded shadow">
+                                <h4 class="text-lg font-medium text-gray-800"><span data-lang="en">Current Estimated Revenue</span><span data-lang="es">Ingresos Estimados Actuales</span></h4>
+                                <p class="text-3xl font-bold text-gray-500" id="current-revenue">$2,500</p>
+                                <p class="text-sm text-gray-500"><span data-lang="en">at</span><span data-lang="es">a</span> <span id="current-rpm-label">$5.00</span> RPM</p>
+                                <div class="h-4 mt-4 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-gray-400 rounded-full" style="width: 70%;"></div></div>
+                            </div>
+                            <div class="comparison-arrows"><i class="fas fa-angle-right"></i></div>
+                            <div class="bg-white p-6 rounded shadow border-2 border-green-500 pulse">
+                                <div class="absolute -top-3 -right-3 bg-green-500 text-white text-xs py-1 px-2 rounded-full font-bold"><span data-lang="en">Premium</span><span data-lang="es">Premium</span></div>
+                                <h4 class="text-lg font-medium text-blue-800"><span data-lang="en">With Hispanic Premium Network</span><span data-lang="es">Con Red Premium Hispana</span></h4>
+                                <p class="text-3xl font-bold text-green-600" id="hpn-revenue">$3,500</p>
+                                <p class="text-sm text-gray-500"><span data-lang="en">at</span><span data-lang="es">a</span> <span id="hpn-rpm">$7.00</span> RPM</p>
+                                <div class="h-4 mt-4 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-blue-500 to-green-500 rounded-full" style="width: 100%;"></div></div>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                            <div class="flex justify-between mb-1"><span class="text-base font-medium text-gray-700"><span data-lang="en">Additional Monthly Revenue</span><span data-lang="es">Ingresos Mensuales Adicionales</span></span><span class="text-base font-medium text-green-600" id="additional-revenue">$1,000</span></div>
+                            <div class="flex justify-between"><span class="text-base font-medium text-gray-700"><span data-lang="en">Annual Impact</span><span data-lang="es">Impacto Anual</span></span><span class="text-base font-medium text-green-600" id="annual-impact">$12,000</span></div>
+                            <div class="mt-4 text-sm text-gray-600 flex items-center"><i class="fas fa-info-circle mr-2 text-blue-500"></i> <span data-lang="en">Results based on average performance across our network. Individual results may vary.</span><span data-lang="es">Resultados basados en el rendimiento promedio de nuestra red. Los resultados individuales pueden variar.</span></div>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4"><span data-lang="en">Content Types We Support</span><span data-lang="es">Tipos de Contenido que Admitimos</span></h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div class="bg-white p-3 rounded shadow hover:bg-blue-50 transition-all duration-300"><div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-2"><i class="fas fa-newspaper text-blue-600"></i></div><p class="font-medium text-gray-800"><span data-lang="en">News</span><span data-lang="es">Noticias</span></p></div>
+                            <div class="bg-white p-3 rounded shadow hover:bg-blue-50 transition-all duration-300"><div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-2"><i class="fas fa-utensils text-blue-600"></i></div><p class="font-medium text-gray-800"><span data-lang="en">Food</span><span data-lang="es">Comida</span></p></div>
+                            <div class="bg-white p-3 rounded shadow hover:bg-blue-50 transition-all duration-300"><div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-2"><i class="fas fa-futbol text-blue-600"></i></div><p class="font-medium text-gray-800"><span data-lang="en">Sports</span><span data-lang="es">Deportes</span></p></div>
+                            <div class="bg-white p-3 rounded shadow hover:bg-blue-50 transition-all duration-300"><div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-2"><i class="fas fa-music text-blue-600"></i></div><p class="font-medium text-gray-800"><span data-lang="en">Entertainment</span><span data-lang="es">Entretenimiento</span></p></div>
+                        </div>
+                    </div>
+                    <div class="text-center"><a href="#apply-now" class="btn-primary inline-block"><span data-lang="en">Apply Now</span><span data-lang="es">Aplicar Ahora</span></a><p class="text-sm text-gray-500 mt-2"><span data-lang="en">Free application. Takes less than 5 minutes.</span><span data-lang="es">Solicitud gratuita. Tarda menos de 5 minutos.</span></p></div>
+                </div>
+                
+                <div class="tab-content" id="advertiser-content">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4"><span data-lang="en">Reach Authentic Hispanic Audiences at Scale</span><span data-lang="es">Alcanza Audiencias Hispanas Auténticas a Escala</span></h2>
+                    <p class="text-gray-600 mb-6"><span data-lang="en">Access premium inventory that's verified for cultural relevance, allowing your Hispanic campaigns to reach the right audience in the right context.</span><span data-lang="es">Accede a inventario premium verificado por su relevancia cultural, permitiendo que tus campañas hispanas lleguen a la audiencia correcta en el contexto adecuado.</span></p>
+                    <div class="bg-gray-50 p-6 rounded-lg mb-8 shadow-inner">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4"><span data-lang="en">Our Publisher Network</span><span data-lang="es">Nuestra Red de Editores</span></h3>
+                        <div class="usa-map-container mb-4">
+                            <div class="usa-map-dot" style="top: 40%; left: 25%;" data-location="California" data-publishers="42" data-readers="14.5M"><div class="ripple"></div></div>
+                            <div class="usa-map-dot" style="top: 50%; left: 37%;" data-location="Texas" data-publishers="35" data-readers="11.2M"><div class="ripple"></div></div>
+                            <div class="usa-map-dot" style="top: 30%; left: 45%;" data-location="Illinois" data-publishers="12" data-readers="4.8M"><div class="ripple"></div></div>
+                            <div class="usa-map-dot" style="top: 25%; left: 80%;" data-location="New York" data-publishers="18" data-readers="7.2M"><div class="ripple"></div></div>
+                            <div class="usa-map-dot" style="top: 55%; left: 80%;" data-location="Florida" data-publishers="24" data-readers="9.5M"><div class="ripple"></div></div>
+                            <div class="usa-map-dot" style="top: 40%; left: 20%;" data-location="Arizona" data-publishers="9" data-readers="3.6M"><div class="ripple"></div></div>
+                            <div class="usa-map-dot" style="top: 35%; left: 60%;" data-location="Other States" data-publishers="10" data-readers="11.2M"><div class="ripple"></div></div>
+                            <div class="map-tooltip" id="map-tooltip"><h4 class="font-bold text-gray-800 mb-1" id="tooltip-location">California</h4><div class="flex items-center mb-1"><i class="fas fa-newspaper text-blue-600 mr-2 text-sm"></i><p class="text-sm"><span id="tooltip-publishers">42</span> <span data-lang="en">Publishers</span><span data-lang="es">Editores</span></p></div><div class="flex items-center"><i class="fas fa-users text-blue-600 mr-2 text-sm"></i><p class="text-sm"><span id="tooltip-readers">14.5M</span> <span data-lang="en">Monthly Readers</span><span data-lang="es">Lectores Mensuales</span></p></div></div>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div class="bg-white p-4 rounded shadow hover:shadow-md transition-all duration-300"><p class="text-2xl font-bold text-blue-800">150+</p><p class="text-sm text-gray-600"><span data-lang="en">Premium Publishers</span><span data-lang="es">Editores Premium</span></p></div>
+                            <div class="bg-white p-4 rounded shadow hover:shadow-md transition-all duration-300"><p class="text-2xl font-bold text-blue-800">62M+</p><p class="text-sm text-gray-600"><span data-lang="en">Monthly Readers</span><span data-lang="es">Lectores Mensuales</span></p></div>
+                            <div class="bg-white p-4 rounded shadow hover:shadow-md transition-all duration-300"><p class="text-2xl font-bold text-blue-800">698</p><p class="text-sm text-gray-600"><span data-lang="en">Content Categories</span><span data-lang="es">Categorías de Contenido</span></p></div>
+                            <div class="bg-white p-4 rounded shadow hover:shadow-md transition-all duration-300"><p class="text-2xl font-bold text-blue-800">11</p><p class="text-sm text-gray-600"><span data-lang="en">Cultural Segments</span><span data-lang="es">Segmentos Culturales</span></p></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg mb-8 shadow-inner">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4"><span data-lang="en">Advanced Cultural Targeting</span><span data-lang="es">Segmentación Cultural Avanzada</span></h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-white p-4 rounded shadow"><h4 class="text-lg font-medium text-blue-800 mb-3 flex items-center"><i class="fas fa-globe-americas text-secondary mr-2"></i> <span data-lang="en">Cultural Segments</span><span data-lang="es">Segmentos Culturales</span></h4><ul class="text-gray-600 space-y-3"><li class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3"><i class="fas fa-check text-green-600 text-xs"></i></div> Mexican-American</li><li class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3"><i class="fas fa-check text-green-600 text-xs"></i></div> Caribbean Hispanic</li><li class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3"><i class="fas fa-check text-green-600 text-xs"></i></div> Central American</li><li class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3"><i class="fas fa-check text-green-600 text-xs"></i></div> South American</li><li class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3"><i class="fas fa-check text-green-600 text-xs"></i></div> Bicultural/Bilingual</li></ul></div>
+                            <div class="bg-white p-4 rounded shadow"><h4 class="text-lg font-medium text-blue-800 mb-3 flex items-center"><i class="fas fa-users text-secondary mr-2"></i> <span data-lang="en">Generational Segments</span><span data-lang="es">Segmentos Generacionales</span></h4><ul class="text-gray-600 space-y-3"><li class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3"><i class="fas fa-check text-green-600 text-xs"></i></div> <span data-lang="en">First Generation</span><span data-lang="es">Primera Generación</span></li><li class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3"><i class="fas fa-check text-green-600 text-xs"></i></div> <span data-lang="en">Second Generation</span><span data-lang="es">Segunda Generación</span></li><li class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3"><i class="fas fa-check text-green-600 text-xs"></i></div> <span data-lang="en">Third+ Generation</span><span data-lang="es">Tercera+ Generación</span></li><li class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3"><i class="fas fa-check text-green-600 text-xs"></i></div> <span data-lang="en">Spanish Dominant</span><span data-lang="es">Dominante Español</span></li><li class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3"><i class="fas fa-check text-green-600 text-xs"></i></div> <span data-lang="en">English Dominant</span><span data-lang="es">Dominante Inglés</span></li></ul></div>
+                        </div>
+                        <div class="mt-6 bg-white p-4 rounded shadow"><h4 class="text-lg font-medium text-blue-800 mb-3 flex items-center"><i class="fas fa-language text-secondary mr-2"></i> <span data-lang="en">Language & Content Types</span><span data-lang="es">Idioma y Tipos de Contenido</span></h4><div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4"><div class="bg-blue-50 rounded-full py-1 px-3 text-center text-sm text-blue-800 font-medium"><span data-lang="en">Spanish</span><span data-lang="es">Español</span></div><div class="bg-blue-50 rounded-full py-1 px-3 text-center text-sm text-blue-800 font-medium"><span data-lang="en">English</span><span data-lang="es">Inglés</span></div><div class="bg-blue-50 rounded-full py-1 px-3 text-center text-sm text-blue-800 font-medium"><span data-lang="en">Bilingual</span><span data-lang="es">Bilingüe</span></div><div class="bg-blue-50 rounded-full py-1 px-3 text-center text-sm text-blue-800 font-medium">Spanglish</div></div><div class="grid grid-cols-2 sm:grid-cols-3 gap-2"><div class="bg-purple-50 rounded-full py-1 px-3 text-center text-sm text-purple-800 font-medium"><span data-lang="en">News</span><span data-lang="es">Noticias</span></div><div class="bg-purple-50 rounded-full py-1 px-3 text-center text-sm text-purple-800 font-medium"><span data-lang="en">Entertainment</span><span data-lang="es">Entretenimiento</span></div><div class="bg-purple-50 rounded-full py-1 px-3 text-center text-sm text-purple-800 font-medium"><span data-lang="en">Lifestyle</span><span data-lang="es">Estilo de Vida</span></div><div class="bg-purple-50 rounded-full py-1 px-3 text-center text-sm text-purple-800 font-medium"><span data-lang="en">Sports</span><span data-lang="es">Deportes</span></div><div class="bg-purple-50 rounded-full py-1 px-3 text-center text-sm text-purple-800 font-medium"><span data-lang="en">Food</span><span data-lang="es">Comida</span></div><div class="bg-purple-50 rounded-full py-1 px-3 text-center text-sm text-purple-800 font-medium"><span data-lang="en">+ 15 more</span><span data-lang="es">+ 15 más</span></div></div></div>
+                    </div>
+                    <div class="text-center"><a href="#access-inventory" class="btn-primary inline-block"><span data-lang="en">Access Premium Inventory</span><span data-lang="es">Acceder a Inventario Premium</span></a><p class="text-sm text-gray-500 mt-2"><span data-lang="en">No minimum spend requirements. Start with a test campaign.</span><span data-lang="es">Sin requisitos de gasto mínimo. Comienza con una campaña de prueba.</span></p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="for-publishers" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-sm font-bold text-secondary uppercase tracking-wider"><span data-lang="en">For Publishers</span><span data-lang="es">Para Editores</span></span>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 mt-2"><span data-lang="en">Publisher Benefits</span><span data-lang="es">Beneficios para Editores</span></h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto"><span data-lang="en">Join the network that values your Hispanic content at its true worth</span><span data-lang="es">Únete a la red que valora tu contenido hispano en su verdadero valor</span></p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="card bg-white p-6">
+                    <div class="benefit-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2"><span data-lang="en">Higher CPMs</span><span data-lang="es">CPMs Más Altos</span></h3>
+                    <p class="text-gray-600"><span data-lang="en">Average 40% increase over standard programmatic rates, with verified cultural inventory commanding premium prices.</span><span data-lang="es">Aumento promedio del 40% sobre las tarifas programáticas estándar, con inventario cultural verificado que exige precios premium.</span></p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <div class="flex justify-between items-center text-sm"><span class="text-gray-500"><span data-lang="en">Standard CPM</span><span data-lang="es">CPM Estándar</span></span><span class="font-medium">$5.00</span></div>
+                        <div class="flex justify-between items-center text-sm mt-1"><span class="text-green-600 font-medium">HPN CPM</span><span class="font-medium text-green-600">$7.00</span></div>
+                    </div>
+                </div>
+                <div class="card bg-white p-6">
+                    <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2"><span data-lang="en">Premium Demand</span><span data-lang="es">Demanda Premium</span></h3>
+                    <p class="text-gray-600"><span data-lang="en">Direct access to Fortune 500 advertisers seeking authentic Hispanic audiences at scale.</span><span data-lang="es">Acceso directo a anunciantes de Fortune 500 que buscan audiencias hispanas auténticas a escala.</span></p>
+                    <div class="mt-4 grid grid-cols-3 gap-1"><div class="bg-gray-100 h-10 rounded flex items-center justify-center text-xs text-gray-600 font-medium"><span data-lang="en">Auto</span><span data-lang="es">Auto</span></div><div class="bg-gray-100 h-10 rounded flex items-center justify-center text-xs text-gray-600 font-medium">CPG</div><div class="bg-gray-100 h-10 rounded flex items-center justify-center text-xs text-gray-600 font-medium"><span data-lang="en">Finance</span><span data-lang="es">Finanzas</span></div></div>
+                </div>
+                <div class="card bg-white p-6">
+                    <div class="benefit-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2"><span data-lang="en">Free Analytics</span><span data-lang="es">Analíticas Gratuitas</span></h3>
+                    <p class="text-gray-600"><span data-lang="en">Gain deep insights into your audience's cultural profiles and content preferences with our dashboard.</span><span data-lang="es">Obtén insights profundos sobre los perfiles culturales y preferencias de contenido de tu audiencia con nuestro panel.</span></p>
+                    <div class="mt-4 w-full h-12 bg-gray-100 rounded-md overflow-hidden flex"><div class="h-full bg-blue-600" style="width: 35%;"></div><div class="h-full bg-purple-600" style="width: 25%;"></div><div class="h-full bg-green-600" style="width: 20%;"></div><div class="h-full bg-yellow-500" style="width: 15%;"></div><div class="h-full bg-red-500" style="width: 5%;"></div></div>
+                </div>
+                <div class="card bg-white p-6">
+                    <div class="benefit-icon"><i class="fas fa-plug"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2"><span data-lang="en">Easy Integration</span><span data-lang="es">Integración Fácil</span></h3>
+                    <p class="text-gray-600"><span data-lang="en">Simple 5-minute setup with your existing ad stack through header bidding or Google Ad Manager.</span><span data-lang="es">Configuración simple en 5 minutos con tu stack de anuncios existente a través de header bidding o Google Ad Manager.</span></p>
+                    <div class="mt-4 p-2 bg-gray-100 rounded text-xs font-mono overflow-x-auto"><code>&lt;script async src="//hpn.io/tag/12345.js"&gt;&lt;/script&gt;</code></div>
+                </div>
+            </div>
+            <div class="max-w-6xl mx-auto mt-16 grid md:grid-cols-2 gap-12">
+                <div class="slide-in-left">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4"><span data-lang="en">Monthly On-Time Payments</span><span data-lang="es">Pagos Mensuales Puntuales</span></h3>
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"><i class="fas fa-calendar-check text-blue-600"></i></div>
+                        <div class="ml-4">
+                            <p class="text-gray-600 mb-3"><span data-lang="en">We understand cash flow matters to publishers. That's why we offer:</span><span data-lang="es">Entendemos que el flujo de caja importa a los editores. Por eso ofrecemos:</span></p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Net-30 payment terms</span><span data-lang="es">Condiciones de pago Net-30</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Multiple payment methods</span><span data-lang="es">Múltiples métodos de pago</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Transparent reporting</span><span data-lang="es">Informes transparentes</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">No hidden fees or deductions</span><span data-lang="es">Sin tarifas ni deducciones ocultas</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-in-right">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4"><span data-lang="en">Dedicated Support Team</span><span data-lang="es">Equipo de Soporte Dedicado</span></h3>
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"><i class="fas fa-headset text-purple-600"></i></div>
+                        <div class="ml-4">
+                            <p class="text-gray-600 mb-3"><span data-lang="en">Every publisher gets access to personalized support:</span><span data-lang="es">Cada editor tiene acceso a soporte personalizado:</span></p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Dedicated account manager</span><span data-lang="es">Gerente de cuenta dedicado</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Technical integration assistance</span><span data-lang="es">Asistencia de integración técnica</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Content strategy consulting</span><span data-lang="es">Consultoría de estrategia de contenido</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Revenue optimization tips</span><span data-lang="es">Consejos de optimización de ingresos</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="for-advertisers" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-sm font-bold text-secondary uppercase tracking-wider"><span data-lang="en">For Advertisers</span><span data-lang="es">Para Anunciantes</span></span>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 mt-2"><span data-lang="en">Advertiser Benefits</span><span data-lang="es">Beneficios para Anunciantes</span></h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto"><span data-lang="en">Reach authentic Hispanic audiences in brand-safe, culturally relevant environments</span><span data-lang="es">Alcanza audiencias hispanas auténticas en entornos seguros para la marca y culturalmente relevantes</span></p>
+            </div>
+            <div class="max-w-6xl mx-auto mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center"><span data-lang="en">Campaign Performance</span><span data-lang="es">Rendimiento de Campaña</span></h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="metric-card bg-white p-6 rounded shadow"><h4 class="text-3xl font-bold text-gray-800 mb-2">+32%</h4><p class="text-lg text-gray-600"><span data-lang="en">Higher CTR</span><span data-lang="es">CTR Más Alto</span></p><p class="text-sm text-gray-500 mt-2"><span data-lang="en">Compared to standard programmatic buys targeting Hispanic audiences</span><span data-lang="es">En comparación con compras programáticas estándar dirigidas a audiencias hispanas</span></p><div class="mt-4 h-16"><canvas id="ctr-chart"></canvas></div></div>
+                    <div class="metric-card bg-white p-6 rounded shadow"><h4 class="text-3xl font-bold text-gray-800 mb-2">+27%</h4><p class="text-lg text-gray-600"><span data-lang="en">Longer Time on Site</span><span data-lang="es">Mayor Tiempo en Sitio</span></p><p class="text-sm text-gray-500 mt-2"><span data-lang="en">More engaged users who respond to culturally relevant placements</span><span data-lang="es">Usuarios más comprometidos que responden a ubicaciones culturalmente relevantes</span></p><div class="mt-4 h-16"><canvas id="engagement-chart"></canvas></div></div>
+                    <div class="metric-card bg-white p-6 rounded shadow"><h4 class="text-3xl font-bold text-gray-800 mb-2">+41%</h4><p class="text-lg text-gray-600"><span data-lang="en">Higher Conversion</span><span data-lang="es">Conversión Más Alta</span></p><p class="text-sm text-gray-500 mt-2"><span data-lang="en">Cultural relevance translates directly to better bottom-line results</span><span data-lang="es">La relevancia cultural se traduce directamente en mejores resultados finales</span></p><div class="mt-4 h-16"><canvas id="conversion-chart"></canvas></div></div>
+                </div>
+                <div class="mt-12 p-6 bg-white rounded-lg shadow"><h3 class="text-xl font-bold text-gray-800 mb-4"><span data-lang="en">Cultural Reach Across Hispanic Segments</span><span data-lang="es">Alcance Cultural en Segmentos Hispanos</span></h3><div class="h-64"><canvas id="demographics-chart"></canvas></div></div>
+            </div>
+            <div class="max-w-6xl mx-auto mt-12 mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center"><span data-lang="en">Premium Inventory Categories</span><span data-lang="es">Categorías de Inventario Premium</span></h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-5 rounded-lg shadow text-center hover:shadow-lg transition-all duration-300"><div class="w-16 h-16 rounded-full bg-blue-100 mx-auto mb-4 flex items-center justify-center"><i class="fas fa-newspaper text-blue-600 text-xl"></i></div><h4 class="font-bold text-gray-800 mb-1"><span data-lang="en">News & Politics</span><span data-lang="es">Noticias y Política</span></h4><p class="text-sm text-gray-500">42 <span data-lang="en">Publishers</span><span data-lang="es">Editores</span></p></div>
+                    <div class="bg-white p-5 rounded-lg shadow text-center hover:shadow-lg transition-all duration-300"><div class="w-16 h-16 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center"><i class="fas fa-utensils text-purple-600 text-xl"></i></div><h4 class="font-bold text-gray-800 mb-1"><span data-lang="en">Food & Recipe</span><span data-lang="es">Comida y Recetas</span></h4><p class="text-sm text-gray-500">35 <span data-lang="en">Publishers</span><span data-lang="es">Editores</span></p></div>
+                    <div class="bg-white p-5 rounded-lg shadow text-center hover:shadow-lg transition-all duration-300"><div class="w-16 h-16 rounded-full bg-green-100 mx-auto mb-4 flex items-center justify-center"><i class="fas fa-futbol text-green-600 text-xl"></i></div><h4 class="font-bold text-gray-800 mb-1"><span data-lang="en">Sports</span><span data-lang="es">Deportes</span></h4><p class="text-sm text-gray-500">28 <span data-lang="en">Publishers</span><span data-lang="es">Editores</span></p></div>
+                    <div class="bg-white p-5 rounded-lg shadow text-center hover:shadow-lg transition-all duration-300"><div class="w-16 h-16 rounded-full bg-red-100 mx-auto mb-4 flex items-center justify-center"><i class="fas fa-music text-red-600 text-xl"></i></div><h4 class="font-bold text-gray-800 mb-1"><span data-lang="en">Entertainment</span><span data-lang="es">Entretenimiento</span></h4><p class="text-sm text-gray-500">31 <span data-lang="en">Publishers</span><span data-lang="es">Editores</span></p></div>
+                </div>
+                <div class="text-center mt-8"><a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center"><span data-lang="en">View all 22 categories</span><span data-lang="es">Ver las 22 categorías</span><i class="fas fa-chevron-right ml-2 text-sm"></i></a></div>
+            </div>
+            <div class="text-center"><a href="#demo-request" class="btn-secondary inline-block"><span data-lang="en">Request Media Kit</span><span data-lang="es">Solicitar Kit de Medios</span></a><p class="text-sm text-gray-500 mt-2"><span data-lang="en">Includes audience profiles, case studies and rate card</span><span data-lang="es">Incluye perfiles de audiencia, casos de éxito y tarifario</span></p></div>
+        </div>
+    </section>
+    
+    <section id="process" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-sm font-bold text-secondary uppercase tracking-wider"><span data-lang="en">How It Works</span><span data-lang="es">Cómo Funciona</span></span>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 mt-2"><span data-lang="en">Three Simple Steps</span><span data-lang="es">Tres Pasos Simples</span></h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto"><span data-lang="en">Start monetizing your Hispanic content at premium rates in less than a week</span><span data-lang="es">Comienza a monetizar tu contenido hispano con tarifas premium en menos de una semana</span></p>
+            </div>
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="step-number mx-auto">1</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2"><span data-lang="en">Apply</span><span data-lang="es">Aplica</span></h3>
+                        <p class="text-gray-600"><span data-lang="en">Submit your site for review through our simple application process. We'll evaluate your content for cultural relevance and quality.</span><span data-lang="es">Envía tu sitio para revisión a través de nuestro simple proceso de solicitud. Evaluaremos tu contenido por relevancia cultural y calidad.</span></p>
+                        <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-2"><span data-lang="en">Requirements</span><span data-lang="es">Requisitos</span></h4>
+                            <ul class="space-y-1 text-sm text-gray-600 text-left">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Hispanic-focused content</span><span data-lang="es">Contenido enfocado en hispanos</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Brand-safe environment</span><span data-lang="es">Entorno seguro para la marca</span></li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Regular content updates</span><span data-lang="es">Actualizaciones regulares de contenido</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="step-number mx-auto">2</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2"><span data-lang="en">Integrate</span><span data-lang="es">Integra</span></h3>
+                        <p class="text-gray-600"><span data-lang="en">Our technical team will help you implement the HPN tags on your site, either through header bidding or Google Ad Manager.</span><span data-lang="es">Nuestro equipo técnico te ayudará a implementar las etiquetas HPN en tu sitio, ya sea a través de header bidding o Google Ad Manager.</span></p>
+                        <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-2"><span data-lang="en">Integration Options</span><span data-lang="es">Opciones de Integración</span></h4>
+                            <ul class="space-y-1 text-sm text-gray-600 text-left">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Google Ad Manager</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Prebid.js</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span data-lang="en">Direct tags</span><span data-lang="es">Etiquetas directas</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="step-number mx-auto">3</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2"><span data-lang="en">Earn More</span><span data-lang="es">Gana Más</span></h3>
+                        <p class="text-gray-600"><span data-lang="en">Start receiving premium bids immediately. Access your dashboard to track performance and optimize your earnings.</span><span data-lang="es">Comienza a recibir ofertas premium inmediatamente. Accede a tu panel para rastrear el rendimiento y optimizar tus ganancias.</span></p>
+                        <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-2"><span data-lang="en">Average Results</span><span data-lang="es">Resultados Promedio</span></h4>
+                            <ul class="space-y-1 text-sm text-gray-600 text-left">
+                                <li class="flex items-center"><i class="fas fa-arrow-up text-green-500 mr-2"></i> <span data-lang="en">40% higher CPMs</span><span data-lang="es">40% CPMs más altos</span></li>
+                                <li class="flex items-center"><i class="fas fa-arrow-up text-green-500 mr-2"></i> <span data-lang="en">35% fill rate increase</span><span data-lang="es">35% aumento en fill rate</span></li>
+                                <li class="flex items-center"><i class="fas fa-arrow-up text-green-500 mr-2"></i> <span data-lang="en">25% more ad requests</span><span data-lang="es">25% más solicitudes de anuncios</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative mt-20">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-200"></div><div class="timeline-progress" id="timeline-progress"></div>
+                    <div class="flex justify-between">
+                        <div class="timeline-node" id="timeline-node-1"><div class="absolute top-0 -mt-3 left-0 -ml-3 w-7 h-7 rounded-full bg-blue-700 timeline-node-circle"></div><div class="mt-8"><p class="font-medium text-gray-800"><span data-lang="en">Day 1</span><span data-lang="es">Día 1</span></p><p class="text-sm text-gray-600"><span data-lang="en">Application Review</span><span data-lang="es">Revisión de Solicitud</span></p></div></div>
+                        <div class="timeline-node" id="timeline-node-2"><div class="absolute top-0 -mt-3 left-0 -ml-3 w-7 h-7 rounded-full bg-blue-700 timeline-node-circle"></div><div class="mt-8"><p class="font-medium text-gray-800"><span data-lang="en">Day 2-3</span><span data-lang="es">Día 2-3</span></p><p class="text-sm text-gray-600"><span data-lang="en">Technical Setup</span><span data-lang="es">Configuración Técnica</span></p></div></div>
+                        <div class="timeline-node" id="timeline-node-3"><div class="absolute top-0 -mt-3 left-0 -ml-3 w-7 h-7 rounded-full bg-blue-700 timeline-node-circle"></div><div class="mt-8"><p class="font-medium text-gray-800"><span data-lang="en">Day 4</span><span data-lang="es">Día 4</span></p><p class="text-sm text-gray-600"><span data-lang="en">Go Live</span><span data-lang="es">Lanzamiento</span></p></div></div>
+                        <div class="timeline-node" id="timeline-node-4"><div class="absolute top-0 -mt-3 left-0 -ml-3 w-7 h-7 rounded-full bg-blue-700 timeline-node-circle"></div><div class="mt-8"><p class="font-medium text-gray-800"><span data-lang="en">Day 30</span><span data-lang="es">Día 30</span></p><p class="text-sm text-gray-600"><span data-lang="en">First Payment</span><span data-lang="es">Primer Pago</span></p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-sm font-bold text-accent uppercase tracking-wider"><span data-lang="en">Success Stories</span><span data-lang="es">Casos de Éxito</span></span>
+                <h2 class="text-4xl font-bold mb-4 mt-2"><span data-lang="en">Hear From Our Partners</span><span data-lang="es">Escucha a Nuestros Socios</span></h2>
+                <p class="text-xl opacity-90 max-w-2xl mx-auto"><span data-lang="en">Real results from publishers and advertisers</span><span data-lang="es">Resultados reales de editores y anunciantes</span></p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="testimonial-card bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm">
+                    <div class="text-xl italic mb-6"><span data-lang="en">"Since joining Hispanic Premium Network, our revenue has increased by 47%. The team understands our content and audience, connecting us with brands that truly value what we offer."</span><span data-lang="es">"Desde que nos unimos a Hispanic Premium Network, nuestros ingresos han aumentado un 47%. El equipo entiende nuestro contenido y audiencia, conectándonos con marcas que realmente valoran lo que ofrecemos."</span></div>
+                    <div class="flex items-center"><div class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center mr-4"><span class="font-bold text-white">MF</span></div><div><p class="font-bold">Maria Fernandez</p><p class="text-sm opacity-80">CEO, Cultura Colectiva</p></div></div>
+                    <div class="mt-6 grid grid-cols-3 gap-2">
+                        <div class="bg-white bg-opacity-10 p-2 rounded text-center"><p class="text-lg font-bold">+47%</p><p class="text-xs opacity-80"><span data-lang="en">Revenue</span><span data-lang="es">Ingresos</span></p></div>
+                        <div class="bg-white bg-opacity-10 p-2 rounded text-center"><p class="text-lg font-bold">+55%</p><p class="text-xs opacity-80"><span data-lang="en">Fill Rate</span><span data-lang="es">Tasa de Llenado</span></p></div>
+                        <div class="bg-white bg-opacity-10 p-2 rounded text-center"><p class="text-lg font-bold">$8.20</p><p class="text-xs opacity-80"><span data-lang="en">Avg. CPM</span><span data-lang="es">CPM Prom.</span></p></div>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm">
+                    <div class="text-xl italic mb-6"><span data-lang="en">"The targeting capabilities of Hispanic Premium Network have transformed how we reach Hispanic consumers. We're seeing engagement rates 2-3x higher than our other multicultural channels."</span><span data-lang="es">"Las capacidades de segmentación de Hispanic Premium Network han transformado cómo llegamos a los consumidores hispanos. Estamos viendo tasas de interacción 2-3 veces más altas que nuestros otros canales multiculturales."</span></div>
+                    <div class="flex items-center"><div class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center mr-4"><span class="font-bold text-white">DR</span></div><div><p class="font-bold">David Rodriguez</p><p class="text-sm opacity-80"><span data-lang="en">Multicultural Media Director, Major CPG Brand</span><span data-lang="es">Director de Medios Multiculturales, Marca CPG Importante</span></p></div></div>
+                    <div class="mt-6 grid grid-cols-3 gap-2">
+                        <div class="bg-white bg-opacity-10 p-2 rounded text-center"><p class="text-lg font-bold">2.1%</p><p class="text-xs opacity-80">CTR</p></div>
+                        <div class="bg-white bg-opacity-10 p-2 rounded text-center"><p class="text-lg font-bold">3.2x</p><p class="text-xs opacity-80"><span data-lang="en">Engagement</span><span data-lang="es">Interacción</span></p></div>
+                        <div class="bg-white bg-opacity-10 p-2 rounded text-center"><p class="text-lg font-bold">-22%</p><p class="text-xs opacity-80">CPA</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white bg-opacity-5 p-4 rounded-lg"><div class="text-sm italic mb-4"><span data-lang="en">"HPN has consistently delivered high-quality Hispanic traffic that converts. Their cultural segmentation is unmatched."</span><span data-lang="es">"HPN ha entregado consistentemente tráfico hispano de alta calidad que convierte. Su segmentación cultural es inigualable."</span></div><div class="flex items-center"><div class="w-8 h-8 rounded-full bg-blue-800 flex items-center justify-center mr-2"><span class="font-bold text-white text-xs">JL</span></div><div><p class="font-bold text-sm">Jose Lopez</p><p class="text-xs opacity-80"><span data-lang="en">Media Buyer, Agency</span><span data-lang="es">Comprador de Medios, Agencia</span></p></div></div></div>
+                    <div class="bg-white bg-opacity-5 p-4 rounded-lg"><div class="text-sm italic mb-4"><span data-lang="en">"My site focuses on Mexican recipes and was struggling with standard ad networks. HPN doubled our revenue within 30 days."</span><span data-lang="es">"Mi sitio se enfoca en recetas mexicanas y tenía dificultades con las redes publicitarias estándar. HPN duplicó nuestros ingresos en 30 días."</span></div><div class="flex items-center"><div class="w-8 h-8 rounded-full bg-blue-800 flex items-center justify-center mr-2"><span class="font-bold text-white text-xs">AG</span></div><div><p class="font-bold text-sm">Ana Garcia</p><p class="text-xs opacity-80"><span data-lang="en">Founder, RecetasMex</span><span data-lang="es">Fundadora, RecetasMex</span></p></div></div></div>
+                    <div class="bg-white bg-opacity-5 p-4 rounded-lg"><div class="text-sm italic mb-4"><span data-lang="en">"As a publisher with bilingual content, finding the right monetization was challenging until we joined HPN. Game changer."</span><span data-lang="es">"Como editor con contenido bilingüe, encontrar la monetización adecuada fue un desafío hasta que nos unimos a HPN. Cambió el juego."</span></div><div class="flex items-center"><div class="w-8 h-8 rounded-full bg-blue-800 flex items-center justify-center mr-2"><span class="font-bold text-white text-xs">CM</span></div><div><p class="font-bold text-sm">Carlos Martinez</p><p class="text-xs opacity-80"><span data-lang="en">Editor, Hispanic Today</span><span data-lang="es">Editor, Hispanic Today</span></p></div></div></div>
+                </div>
+            </div>
+            <div class="mt-20">
+                <p class="text-center mb-8 text-lg"><span data-lang="en">Trusted by leading publishers and advertisers</span><span data-lang="es">Con la confianza de editores y anunciantes líderes</span></p>
+                <div class="flex flex-wrap justify-center items-center gap-8 max-w-5xl mx-auto">
+                    <div class="w-32 h-12 bg-white bg-opacity-20 rounded flex items-center justify-center p-2 logo-cloud"><span class="font-bold text-white">Univision Digital</span></div>
+                    <div class="w-32 h-12 bg-white bg-opacity-20 rounded flex items-center justify-center p-2 logo-cloud"><span class="font-bold text-white">Impremedia</span></div>
+                    <div class="w-32 h-12 bg-white bg-opacity-20 rounded flex items-center justify-center p-2 logo-cloud"><span class="font-bold text-white">Mundo Hispánico</span></div>
+                    <div class="w-32 h-12 bg-white bg-opacity-20 rounded flex items-center justify-center p-2 logo-cloud"><span class="font-bold text-white">PxP Media</span></div>
+                    <div class="w-32 h-12 bg-white bg-opacity-20 rounded flex items-center justify-center p-2 logo-cloud"><span class="font-bold text-white">Remezcla</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-xl overflow-hidden shadow-xl">
+                <div class="flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/2 p-8 md:p-12">
+                        <h2 class="text-3xl font-bold mb-4"><span data-lang="en">Ready to get started?</span><span data-lang="es">¿Listo para comenzar?</span></h2>
+                        <p class="text-blue-100 mb-6"><span data-lang="en">Join the network that's redefining value in Hispanic digital media.</span><span data-lang="es">Únete a la red que está redefiniendo el valor en los medios digitales hispanos.</span></p>
+                        <div class="mb-8">
+                            <div class="flex items-center mb-4"><div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3"><i class="fas fa-check text-xs text-white"></i></div><p><span data-lang="en">No minimum traffic requirements</span><span data-lang="es">Sin requisitos mínimos de tráfico</span></p></div>
+                            <div class="flex items-center mb-4"><div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3"><i class="fas fa-check text-xs text-white"></i></div><p><span data-lang="en">Works alongside your existing monetization</span><span data-lang="es">Funciona junto con tu monetización existente</span></p></div>
+                            <div class="flex items-center"><div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3"><i class="fas fa-check text-xs text-white"></i></div><p><span data-lang="en">Net-30 payments, no hidden fees</span><span data-lang="es">Pagos Net-30, sin tarifas ocultas</span></p></div>
+                        </div>
+                        <div id="apply-now">
+                            <div class="mb-4"><label class="block text-sm font-medium mb-1 text-blue-100"><span data-lang="en">Website URL</span><span data-lang="es">URL del Sitio Web</span></label><input type="text" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" placeholder_en="yourwebsite.com" placeholder_es="tusitioweb.com"></div>
+                            <div class="mb-4"><label class="block text-sm font-medium mb-1 text-blue-100"><span data-lang="en">Monthly Pageviews</span><span data-lang="es">Vistas de Página Mensuales</span></label><select class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"><option><span data-lang="en">Select range</span><span data-lang="es">Seleccionar rango</span></option><option>10K - 100K</option><option>100K - 500K</option><option>500K - 1M</option><option>1M+</option></select></div>
+                            <button class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 w-full"><span data-lang="en">Apply as Publisher</span><span data-lang="es">Aplicar como Editor</span></button>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-8 md:p-12 bg-gradient-to-br from-blue-800 to-indigo-800">
+                        <h2 class="text-3xl font-bold mb-4"><span data-lang="en">Looking to advertise?</span><span data-lang="es">¿Buscas anunciar?</span></h2>
+                        <p class="text-blue-100 mb-6"><span data-lang="en">Get access to premium Hispanic inventory with guaranteed cultural relevance.</span><span data-lang="es">Obtén acceso a inventario hispano premium con relevancia cultural garantizada.</span></p>
+                        <div class="mb-8">
+                            <div class="flex items-center mb-4"><div class="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center mr-3"><i class="fas fa-check text-xs text-white"></i></div><p><span data-lang="en">Programmatic and direct buying options</span><span data-lang="es">Opciones de compra programática y directa</span></p></div>
+                            <div class="flex items-center mb-4"><div class="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center mr-3"><i class="fas fa-check text-xs text-white"></i></div><p><span data-lang="en">Detailed cultural targeting capabilities</span><span data-lang="es">Capacidades detalladas de segmentación cultural</span></p></div>
+                            <div class="flex items-center"><div class="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center mr-3"><i class="fas fa-check text-xs text-white"></i></div><p><span data-lang="en">Full transparency and brand safety</span><span data-lang="es">Transparencia total y seguridad de marca</span></p></div>
+                        </div>
+                        <div id="advertiser-contact">
+                            <div class="mb-4"><label class="block text-sm font-medium mb-1 text-blue-100"><span data-lang="en">Name</span><span data-lang="es">Nombre</span></label><input type="text" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" placeholder_en="Your name" placeholder_es="Tu nombre"></div>
+                            <div class="mb-4"><label class="block text-sm font-medium mb-1 text-blue-100">Email</label><input type="email" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" placeholder_en="you@company.com" placeholder_es="tu@empresa.com"></div>
+                            <button class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 w-full"><span data-lang="en">Contact Sales</span><span data-lang="es">Contactar Ventas</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between mb-8">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="text-2xl font-bold text-white mr-2"><span>HISPA<span class="acento-n">Ñ</span>O</span></div>
+                        <span class="mx-2 text-gray-400">|</span>
+                        <div><h2 class="text-lg font-semibold"><span data-lang="en">Hispanic Premium Network</span><span data-lang="es">Red Premium Hispana</span></h2></div>
+                    </div>
+                    <p class="mt-4 text-gray-400 max-w-md"><span data-lang="en">Connecting premium Hispanic content with brands who value cultural authenticity. The first certified Hispanic publisher network.</span><span data-lang="es">Conectando contenido hispano premium con marcas que valoran la autenticidad cultural. La primera red certificada de editores hispanos.</span></p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-bold mb-4"><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Team</span><span data-lang="es">Equipo</span></a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Careers</span><span data-lang="es">Carreras</span></a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Press</span><span data-lang="es">Prensa</span></a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-4"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Publisher FAQ</span><span data-lang="es">FAQ Editores</span></a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Advertiser Guide</span><span data-lang="es">Guía Anunciantes</span></a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-4"><span data-lang="en">Support</span><span data-lang="es">Soporte</span></h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Help Center</span><span data-lang="es">Centro de Ayuda</span></a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Contact Us</span><span data-lang="es">Contáctanos</span></a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Privacy Policy</span><span data-lang="es">Política de Privacidad</span></a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Terms of Service</span><span data-lang="es">Términos de Servicio</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0"><span data-lang="en">© 2025 HISPAÑO LLC. All rights reserved.</span><span data-lang="es">© 2025 HISPAÑO LLC. Todos los derechos reservados.</span></p>
+                <div class="flex space-x-4"><a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin text-lg"></i></a><a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter text-lg"></i></a><a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-lg"></i></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Hispanic Premium Network | The First Certified Hispanic Publisher Network",
+                description: "The First Certified Hispanic Publisher Network - Higher CPMs for publishers, authentic cultural reach for advertisers.",
+                pageviewsUnit: "pageviews",
+                rpmUnit: "RPM",
+                demographicsChartLabel: "Audience Reach (Millions)",
+                chartYAxisMillions: "Millions",
+                tooltipPublishers: "Publishers",
+                tooltipReaders: "Monthly Readers"
+            },
+            es: {
+                title: "Red Premium Hispana | La Primera Red Certificada de Editores Hispanos",
+                description: "La Primera Red Certificada de Editores Hispanos - CPMs más altos para editores, alcance cultural auténtico para anunciantes.",
+                pageviewsUnit: "vistas",
+                rpmUnit: "RPM",
+                demographicsChartLabel: "Alcance de Audiencia (Millones)",
+                chartYAxisMillions: "Millones",
+                tooltipPublishers: "Editores",
+                tooltipReaders: "Lectores Mensuales"
+            }
+        };
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tab + '-content').classList.add('active');
+            document.getElementById(tab + '-tab').classList.add('active');
+        }
+        
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+             document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+        
+        const pageviewsRange = document.getElementById('pageviews-range');
+        const pageviewsValueEl = document.getElementById('pageviews-value-label'); // Changed from pageviews-value
+        const pageviewsValueDisplay = document.getElementById('pageviews-value-display');
+        const rpmRange = document.getElementById('rpm-range');
+        const rpmValueEl = document.getElementById('rpm-value-label'); // Changed from rpm-value
+        const currentRpmDisplay = document.getElementById('current-rpm-display');
+        const currentRpmLabel = document.getElementById('current-rpm-label');
+        const currentRevenue = document.getElementById('current-revenue');
+        const hpnRevenue = document.getElementById('hpn-revenue');
+        const hpnRpmEl = document.getElementById('hpn-rpm'); // Changed from hpn-rpm
+        const additionalRevenue = document.getElementById('additional-revenue');
+        const annualImpact = document.getElementById('annual-impact');
+        
+        function updateCalculator() {
+            if (!pageviewsRange || !rpmRange) return; // Ensure elements exist
+            const pageviews = parseInt(pageviewsRange.value);
+            const rpm = parseFloat(rpmRange.value);
+            const hpnMultiplier = 1.4; 
+            const hpnRpmValue = rpm * hpnMultiplier;
+            
+            const current = (pageviews / 1000) * rpm;
+            const hpn = (pageviews / 1000) * hpnRpmValue;
+            const additional = hpn - current;
+            const annual = additional * 12;
+            
+            const currentLang = document.documentElement.lang || 'en';
+            const pageviewsUnitText = translations[currentLang]?.pageviewsUnit || translations.en.pageviewsUnit;
+
+            if(pageviewsValueEl) pageviewsValueEl.textContent = pageviews.toLocaleString();
+            if(pageviewsValueDisplay) pageviewsValueDisplay.textContent = `${pageviews.toLocaleString()} ${pageviewsUnitText}`;
+            if(rpmValueEl) rpmValueEl.textContent = '$' + rpm.toFixed(2);
+            if(currentRpmDisplay) currentRpmDisplay.textContent = rpm.toFixed(2);
+            if(currentRpmLabel) currentRpmLabel.textContent = '$' + rpm.toFixed(2);
+            if(currentRevenue) currentRevenue.textContent = '$' + formatMoney(current);
+            if(hpnRevenue) hpnRevenue.textContent = '$' + formatMoney(hpn);
+            if(hpnRpmEl) hpnRpmEl.textContent = '$' + hpnRpmValue.toFixed(2);
+            if(additionalRevenue) additionalRevenue.textContent = '$' + formatMoney(additional);
+            if(annualImpact) annualImpact.textContent = '$' + formatMoney(annual);
+        }
+
+        if (pageviewsRange) pageviewsRange.addEventListener('input', updateCalculator);
+        if (rpmRange) rpmRange.addEventListener('input', updateCalculator);
+        
+        function formatMoney(amount) { return parseFloat(amount).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }); }
+        
+        const mapDots = document.querySelectorAll('.usa-map-dot');
+        const tooltip = document.getElementById('map-tooltip');
+        const tooltipLocation = document.getElementById('tooltip-location');
+        const tooltipPublishersCount = document.getElementById('tooltip-publishers'); // For the number
+        const tooltipReadersCount = document.getElementById('tooltip-readers'); // For the number
+        const tooltipPublishersLabel = tooltip?.querySelector('p:nth-of-type(1) span:last-child'); // for "Publishers" text
+        const tooltipReadersLabel = tooltip?.querySelector('p:nth-of-type(2) span:last-child'); // for "Monthly Readers" text
+
+        mapDots.forEach(dot => {
+            dot.addEventListener('mouseenter', function(e) {
+                const currentLang = document.documentElement.lang || 'en';
+                if(tooltipLocation) tooltipLocation.textContent = this.dataset.location;
+                if(tooltipPublishersCount) tooltipPublishersCount.textContent = this.dataset.publishers;
+                if(tooltipReadersCount) tooltipReadersCount.textContent = this.dataset.readers;
+                if(tooltipPublishersLabel) tooltipPublishersLabel.textContent = translations[currentLang]?.tooltipPublishers || translations.en.tooltipPublishers;
+                if(tooltipReadersLabel) tooltipReadersLabel.textContent = translations[currentLang]?.tooltipReaders || translations.en.tooltipReaders;
+
+                const rect = this.getBoundingClientRect();
+                const mapContainerRect = this.closest('.usa-map-container')?.getBoundingClientRect();
+                if (tooltip && mapContainerRect) {
+                    tooltip.style.top = (rect.top - mapContainerRect.top + 30) + 'px';
+                    tooltip.style.left = (rect.left - mapContainerRect.left + 10) + 'px';
+                    tooltip.style.display = 'block';
+                }
+            });
+            dot.addEventListener('mouseleave', function() { if(tooltip) tooltip.style.display = 'none'; });
+        });
+        
+        function animateTimeline() { /* Timeline animation remains as is, no text to translate here */ }
+        
+        let demographicsChart, ctrChart, engagementChart, conversionChart;
+
+        function initializeCharts(lang) {
+            const currentLangData = translations[lang] || translations.en;
+            const options = { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }}, scales: { x: { display: false }, y: { display: false }}};
+            
+            const demographicsCtx = document.getElementById('demographics-chart')?.getContext('2d');
+            if (demographicsCtx) {
+                if(demographicsChart) demographicsChart.destroy();
+                demographicsChart = new Chart(demographicsCtx, {
+                    type: 'bar', data: { labels: ['Mexican', 'Caribbean', 'Central American', 'South American', 'Bicultural'], datasets: [{ label: currentLangData.demographicsChartLabel, data: [28, 12, 8, 6, 8], backgroundColor: ['rgba(30, 58, 138, 0.7)','rgba(49, 46, 129, 0.7)','rgba(67, 56, 202, 0.7)','rgba(79, 70, 229, 0.7)','rgba(99, 102, 241, 0.7)'], borderColor: ['rgba(30, 58, 138, 1)','rgba(49, 46, 129, 1)','rgba(67, 56, 202, 1)','rgba(79, 70, 229, 1)','rgba(99, 102, 241, 1)'], borderWidth: 1 }]},
+                    options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: currentLangData.chartYAxisMillions }}}, plugins: { tooltip: { callbacks: { label: function(context) { return context.dataset.label + ': ' + context.raw + 'M'; }}}}}
+                });
+            }
+            
+            const ctrCtx = document.getElementById('ctr-chart')?.getContext('2d');
+            if(ctrCtx) { if(ctrChart) ctrChart.destroy(); ctrChart = new Chart(ctrCtx, { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], datasets: [{ label: 'Standard', data: [0.8,0.7,0.9,0.8,0.7,0.8], borderColor: 'rgba(156,163,175,0.7)', backgroundColor: 'rgba(156,163,175,0.1)', fill: true, tension: 0.4 }, { label: 'HPN', data: [1.0,1.2,1.1,1.4,1.3,1.5], borderColor: 'rgba(30,58,138,0.7)', backgroundColor: 'rgba(30,58,138,0.1)', fill: true, tension: 0.4 }]}, options: options}); }
+            
+            const engagementCtx = document.getElementById('engagement-chart')?.getContext('2d');
+            if(engagementCtx) { if(engagementChart) engagementChart.destroy(); engagementChart = new Chart(engagementCtx, { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], datasets: [{ label: 'Standard', data: [1.2,1.3,1.1,1.4,1.2,1.3], borderColor: 'rgba(156,163,175,0.7)', backgroundColor: 'rgba(156,163,175,0.1)', fill: true, tension: 0.4 }, { label: 'HPN', data: [1.6,1.8,1.7,1.9,2.0,2.1], borderColor: 'rgba(109,27,143,0.7)', backgroundColor: 'rgba(109,27,143,0.1)', fill: true, tension: 0.4 }]}, options: options}); }
+            
+            const conversionCtx = document.getElementById('conversion-chart')?.getContext('2d');
+            if(conversionCtx) { if(conversionChart) conversionChart.destroy(); conversionChart = new Chart(conversionCtx, { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], datasets: [{ label: 'Standard', data: [2.1,2.3,2.0,2.2,2.1,2.3], borderColor: 'rgba(156,163,175,0.7)', backgroundColor: 'rgba(156,163,175,0.1)', fill: true, tension: 0.4 }, { label: 'HPN', data: [2.8,3.2,3.0,3.4,3.5,3.6], borderColor: 'rgba(45,212,191,0.7)', backgroundColor: 'rgba(45,212,191,0.1)', fill: true, tension: 0.4 }]}, options: options}); }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentLangBtn = document.getElementById('currentLangBtn');
+            const currentLangFlag = document.getElementById('currentLangFlag');
+            const currentLangText = document.getElementById('currentLangText');
+            const formPlaceholders = {
+                publisher_url: { en: "yourwebsite.com", es: "tusitioweb.com" },
+                advertiser_name: { en: "Your name", es: "Tu nombre" },
+                advertiser_email: { en: "you@company.com", es: "tu@empresa.com" }
+            };
+
+            window.changeLanguage = function(lang) {
+                document.body.className = lang === 'es' ? 'lang-es' : '';
+                
+                if (lang === 'es') {
+                    if(currentLangFlag) currentLangFlag.src = 'https://flagcdn.com/w20/es.png';
+                    if(currentLangFlag) currentLangFlag.alt = 'ES';
+                    if(currentLangText) currentLangText.textContent = 'ES';
+                    document.title = translations.es.title;
+                    document.querySelector('meta[name="description"]').setAttribute("content", translations.es.description);
+                } else {
+                    if(currentLangFlag) currentLangFlag.src = 'https://flagcdn.com/w20/us.png';
+                    if(currentLangFlag) currentLangFlag.alt = 'EN';
+                    if(currentLangText) currentLangText.textContent = 'EN';
+                    document.title = translations.en.title;
+                    document.querySelector('meta[name="description"]').setAttribute("content", translations.en.description);
+                }
+                
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.classList.remove('active');
+                    if (option.getAttribute('onclick') && option.getAttribute('onclick').includes(`changeLanguage('${lang}')`)) {
+                        option.classList.add('active');
+                    }
+                });
+                
+                localStorage.setItem('hpn-lang', lang);
+                document.documentElement.lang = lang;
+                updateCalculator(); // Update calculator display text
+                initializeCharts(lang); // Re-initialize or update charts with new language
+
+                // Update form placeholders
+                const publisherUrlInput = document.querySelector('#apply-now input[type="text"]');
+                if (publisherUrlInput) publisherUrlInput.placeholder = formPlaceholders.publisher_url[lang];
+                const advertiserNameInput = document.querySelector('#advertiser-contact input[type="text"]');
+                if (advertiserNameInput) advertiserNameInput.placeholder = formPlaceholders.advertiser_name[lang];
+                const advertiserEmailInput = document.querySelector('#advertiser-contact input[type="email"]');
+                if (advertiserEmailInput) advertiserEmailInput.placeholder = formPlaceholders.advertiser_email[lang];
+
+            };
+            
+            const savedLang = localStorage.getItem('hpn-lang') || 'en';
+            initializeCharts(savedLang); // Initialize charts with saved/default language first
+            window.changeLanguage(savedLang); // Then apply language changes to everything else
+            
+            setTimeout(animateTimeline, 1000);
+            updateCalculator(); // Initial calculator update
+        });
+    </script>
+</body>
+</html>

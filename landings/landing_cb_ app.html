@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Brain - Intelligence Meets Culture | Hispanic Campaign Platform</title>
+    <meta name="description" content="Plan, execute, and measure Hispanic marketing campaigns with scientific precision. CRS, CAI, CCS metrics. Used by Fortune 500 brands.">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        /* Custom styling */
+        :root {
+            --primary: #1e3a8a; /* Deep Blue */
+            --secondary: #6d1b8f; /* Deep Purple */
+            --accent: #2dd4bf; /* Teal */
+            --orange: #f27044; /* Orange for accents if needed */
+            --gradient-start: #f14b74; /* Pinkish-Red for brain gradient */
+            --gradient-end: #1d41db;   /* Strong Blue for brain gradient */
+            --globe-blue: #599cfc; /* Lighter blue for globe in logo */
+            --text-dark: #1f2937;
+            --bg-white: #e5e7eb; /* Light gray for backgrounds */
+            --hispano-blue: #173c67; /* For HISPAÑO branding if ever needed */
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--text-dark);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .bg-gradient { /* General purpose gradient, can be reused or specified */
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+        
+        .bg-hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232dd4bf' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .brain-gradient {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent; /* Standard property */
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), var(--primary)); /* Purple to Blue */
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); /* Blue to Purple on hover */
+            transform: scale(1.05);
+        }
+        
+        .btn-secondary {
+            border: 2px solid var(--secondary); /* Deep Purple border */
+            color: var(--secondary); /* Deep Purple text */
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(109, 27, 143, 0.1); /* Light Purple bg on hover */
+            transform: scale(1.05);
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .metric-card {
+            border-left: 4px solid;
+        }
+        
+        .crs-card { border-color: var(--primary); } /* Deep Blue */
+        .cai-card { border-color: var(--secondary); } /* Deep Purple */
+        .ccs-card { border-color: var(--accent); } /* Teal */
+        
+        .feature-icon { /* For icons within feature cards or metrics */
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent; /* Standard property */
+        }
+        
+        .testimonial {
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: "\201C"; /* Unicode for left double quotation mark */
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 100px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: rgba(109, 27, 143, 0.1); /* Light purple quote */
+            z-index: -1; /* Behind content */
+        }
+        
+        .footer-gradient { /* For footer background if needed */
+            background: linear-gradient(135deg, rgba(76, 29, 149, 0.1), rgba(30, 58, 138, 0.1));
+        }
+        
+        /* Animation classes */
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse 3s ease-in-out infinite; }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        /* Custom progress bar */
+        .progress { height: 8px; border-radius: 4px; overflow: hidden; background-color: var(--bg-white); }
+        .progress-bar-1 { background: linear-gradient(to right, var(--primary), var(--secondary)); width: 92%; height:100%;}
+        .progress-bar-2 { background: linear-gradient(to right, var(--primary), var(--secondary)); width: 78%; height:100%;}
+        .progress-bar-3 { background: linear-gradient(to right, var(--primary), var(--secondary)); width: 86%; height:100%;}
+
+        /* Brain logo SVG styling */
+        .brain-logo { display: block; }
+        .brain-half { fill: url(#brainGradient); }
+        .brain-divider { stroke: #FFF; stroke-width: 2; /* White divider for better contrast on logo */ }
+        .globe { fill: var(--globe-blue); }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 600; fill: var(--gradient-end); }
+
+        /* Language Switcher Styles */
+        .language-switcher { position: relative; display: inline-block; }
+        .language-btn { background: transparent; border: 1px solid #e5e7eb; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; }
+        .language-btn:hover { border-color: var(--primary); background: rgba(30, 58, 138, 0.05); }
+        .language-flag { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
+        .language-dropdown { position: absolute; top: 100%; right: 0; margin-top: 0.5rem; background: white; border: 1px solid #e5e7eb; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; z-index: 100; min-width: 150px; }
+        .language-switcher:hover .language-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .language-option { padding: 0.75rem 1.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.75rem; transition: all 0.2s ease; }
+        .language-option:hover { background: rgba(30, 58, 138, 0.05); }
+        .language-option.active { background: rgba(30, 58, 138, 0.1); color: var(--primary); font-weight: bold; }
+        
+        [data-lang]:not([data-lang="en"]) { display: none; }
+        body.lang-es [data-lang="en"] { display: none; }
+        body.lang-es [data-lang="es"] { display: initial; }
+
+    </style>
+</head>
+<body class="bg-white">
+    <nav class="bg-white shadow-md py-4 px-6 md:px-12 fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <svg class="h-12 w-auto brain-logo" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="brainGradientNav" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f14b74" />
+                            <stop offset="100%" stop-color="#1d41db" />
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#brainGradientNav)" d="M30 10C17.5 10 10 25 10 35C10 45 17.5 60 30 60C42.5 60 50 45 50 35C50 25 42.5 10 30 10Z" />
+                    <path d="M30 10V60" stroke="#FFFFFF" stroke-width="2" />
+                    <circle cx="45" cy="20" r="10" fill="#599cfc" />
+                    <text x="65" y="35" class="logo-text" font-size="20" fill="#1d41db">Cultural</text>
+                    <text x="65" y="55" class="logo-text" font-size="20" fill="#1d41db">Brain</text>
+                </svg>
+            </a>
+            <div class="hidden md:flex items-center space-x-6 xl:space-x-8">
+                <a href="#features" class="text-gray-600 hover:text-indigo-900 font-medium transition-colors">
+                    <span data-lang="en">Features</span>
+                    <span data-lang="es">Características</span>
+                </a>
+                <a href="#metrics" class="text-gray-600 hover:text-indigo-900 font-medium transition-colors">
+                    <span data-lang="en">Metrics</span>
+                    <span data-lang="es">Métricas</span>
+                </a>
+                <a href="#pricing" class="text-gray-600 hover:text-indigo-900 font-medium transition-colors">
+                    <span data-lang="en">Pricing</span>
+                    <span data-lang="es">Precios</span>
+                </a>
+                <a href="#testimonials" class="text-gray-600 hover:text-indigo-900 font-medium transition-colors">
+                    <span data-lang="en">Success Stories</span>
+                    <span data-lang="es">Casos de Éxito</span>
+                </a>
+                <div class="language-switcher">
+                    <button class="language-btn" id="currentLangBtn">
+                        <img src="https://flagcdn.com/w20/us.png" alt="EN" class="language-flag" id="currentLangFlag">
+                        <span id="currentLangText">EN</span>
+                        <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option active" onclick="changeLanguage('en')">
+                            <img src="https://flagcdn.com/w20/us.png" alt="English" class="language-flag">
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('es')">
+                            <img src="https://flagcdn.com/w20/es.png" alt="Español" class="language-flag">
+                            <span>Español</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#demo" class="px-6 py-2 rounded-lg btn-secondary font-semibold">
+                    <span data-lang="en">Login</span>
+                    <span data-lang="es">Acceder</span>
+                </a>
+                <a href="#demo" class="px-6 py-2 rounded-lg text-white btn-primary font-semibold">
+                    <span data-lang="en">Get Started</span>
+                    <span data-lang="es">Comenzar</span>
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-gray-600 hover:text-indigo-900 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-28 pb-20 bg-hero-pattern">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        <span data-lang="en">Turn Cultural Intelligence into </span>
+                        <span data-lang="es">Convierte Inteligencia Cultural en </span>
+                        <span class="brain-gradient">
+                            <span data-lang="en">Campaign Performance</span>
+                            <span data-lang="es">Rendimiento de Campaña</span>
+                        </span>
+                    </h1>
+                    <p class="text-xl text-gray-700 mb-8">
+                        <span data-lang="en">The only platform that measures, analyzes, and optimizes Hispanic market campaigns with scientific precision.</span>
+                        <span data-lang="es">La única plataforma que mide, analiza y optimiza campañas para el mercado hispano con precisión científica.</span>
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#demo" class="px-8 py-3 rounded-lg text-white btn-primary font-semibold">
+                            <span data-lang="en">Book a Demo</span>
+                            <span data-lang="es">Agendar Demo</span>
+                        </a>
+                        <a href="#features" class="px-8 py-3 rounded-lg btn-secondary font-semibold">
+                            <span data-lang="en">Learn More</span>
+                            <span data-lang="es">Saber Más</span>
+                        </a>
+                    </div>
+                    <div class="mt-10 flex items-center">
+                        <p class="text-sm font-medium mr-6">
+                            <span data-lang="en">Trusted by:</span>
+                            <span data-lang="es">Con la confianza de:</span>
+                        </p>
+                        <div class="flex space-x-6 opacity-70">
+                            <span class="text-gray-800 font-bold">Walmart</span>
+                            <span class="text-gray-800 font-bold">State Farm</span>
+                            <span class="text-gray-800 font-bold">Publicis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-12 md:mt-0">
+                    <div class="relative">
+                        <div class="bg-white rounded-xl shadow-2xl p-4 transform rotate-1 animate-float">
+                            <div class="bg-gradient-to-r from-indigo-900 to-purple-900 rounded-t-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-white font-medium">
+                                        <span data-lang="en">Cultural Brain Dashboard</span>
+                                        <span data-lang="es">Panel de Cultural Brain</span>
+                                    </h3>
+                                    <div class="flex space-x-2">
+                                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <div class="grid grid-cols-3 gap-4 mb-6">
+                                    <div class="bg-gray-100 p-3 rounded-lg text-center">
+                                        <p class="text-xs text-gray-500">
+                                            <span data-lang="en">CRS Score</span>
+                                            <span data-lang="es">Puntaje CRS</span>
+                                        </p>
+                                        <p class="text-2xl font-bold text-indigo-900">92%</p>
+                                    </div>
+                                    <div class="bg-gray-100 p-3 rounded-lg text-center">
+                                        <p class="text-xs text-gray-500">
+                                            <span data-lang="en">CAI Score</span>
+                                            <span data-lang="es">Puntaje CAI</span>
+                                        </p>
+                                        <p class="text-2xl font-bold text-purple-900">78%</p>
+                                    </div>
+                                    <div class="bg-gray-100 p-3 rounded-lg text-center">
+                                        <p class="text-xs text-gray-500">
+                                            <span data-lang="en">CCS Score</span>
+                                            <span data-lang="es">Puntaje CCS</span>
+                                        </p>
+                                        <p class="text-2xl font-bold text-teal-600">86%</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 p-2 rounded-lg mb-4">
+                                    <div class="h-24 w-full">
+                                        <canvas id="metricsChart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-gray-100 p-3 rounded-lg">
+                                        <p class="text-xs text-gray-500">
+                                            <span data-lang="en">Top Audience Segment</span>
+                                            <span data-lang="es">Segmento Principal</span>
+                                        </p>
+                                        <p class="text-sm font-medium">
+                                            <span data-lang="en">Bilingual Millennials</span>
+                                            <span data-lang="es">Millennials Bilingües</span>
+                                        </p>
+                                    </div>
+                                    <div class="bg-gray-100 p-3 rounded-lg">
+                                        <p class="text-xs text-gray-500">
+                                            <span data-lang="en">Campaign Impact</span>
+                                            <span data-lang="es">Impacto de Campaña</span>
+                                        </p>
+                                        <p class="text-sm font-medium">
+                                            <span data-lang="en">+312% Engagement</span>
+                                            <span data-lang="es">+312% Interacción</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-10 -left-10 w-20 h-20 rounded-full bg-gradient-to-r from-blue-400 to-teal-300 blur-xl opacity-70 animate-pulse-slow"></div>
+                        <div class="absolute -bottom-5 -right-5 w-16 h-16 rounded-full bg-gradient-to-r from-pink-400 to-purple-500 blur-xl opacity-70 animate-pulse-slow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metrics" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span data-lang="en">Measure What </span>
+                    <span data-lang="es">Mide lo que </span>
+                    <span class="brain-gradient">
+                        <span data-lang="en">Matters</span>
+                        <span data-lang="es">Importa</span>
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <span data-lang="en">Our proprietary metrics help you understand, quantify, and optimize the cultural relevance of your campaigns</span>
+                    <span data-lang="es">Nuestras métricas patentadas te ayudan a comprender, cuantificar y optimizar la relevancia cultural de tus campañas</span>
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-xl p-8 metric-card crs-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-bullseye text-2xl feature-icon"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">CRS</h3>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">
+                        <span data-lang="en">Cultural Relevance Score</span>
+                        <span data-lang="es">Puntaje de Relevancia Cultural</span>
+                    </h4>
+                    <p class="text-gray-600 mb-6">
+                        <span data-lang="en">Measures how well your content resonates with specific Hispanic cultural contexts and references.</span>
+                        <span data-lang="es">Mide qué tan bien resuena tu contenido con contextos y referencias culturales hispanas específicas.</span>
+                    </p>
+                    <div class="mb-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">
+                                <span data-lang="en">Industry Average: 54%</span>
+                                <span data-lang="es">Promedio Industria: 54%</span>
+                            </span>
+                            <span class="text-sm font-medium">
+                                <span data-lang="en">Your Score: 92%</span>
+                                <span data-lang="es">Tu Puntaje: 92%</span>
+                            </span>
+                        </div>
+                        <div class="progress"><div class="progress-bar-1"></div></div>
+                    </div>
+                    <ul class="mt-4">
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-green-500 mr-2"></i><span><span data-lang="en">Language authenticity</span><span data-lang="es">Autenticidad del lenguaje</span></span></li>
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-green-500 mr-2"></i><span><span data-lang="en">Cultural nuances detection</span><span data-lang="es">Detección de matices culturales</span></span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i><span><span data-lang="en">Regional specificity</span><span data-lang="es">Especificidad regional</span></span></li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-xl p-8 metric-card cai-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-users text-2xl feature-icon"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">CAI</h3>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">
+                        <span data-lang="en">Cultural Affinity Index</span>
+                        <span data-lang="es">Índice de Afinidad Cultural</span>
+                    </h4>
+                    <p class="text-gray-600 mb-6">
+                        <span data-lang="en">Evaluates alignment between your brand's messaging and target Hispanic audience's values and preferences.</span>
+                        <span data-lang="es">Evalúa la alineación entre el mensaje de tu marca y los valores y preferencias de la audiencia hispana objetivo.</span>
+                    </p>
+                    <div class="mb-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">
+                                <span data-lang="en">Industry Average: 47%</span>
+                                <span data-lang="es">Promedio Industria: 47%</span>
+                            </span>
+                            <span class="text-sm font-medium">
+                                <span data-lang="en">Your Score: 78%</span>
+                                <span data-lang="es">Tu Puntaje: 78%</span>
+                            </span>
+                        </div>
+                        <div class="progress"><div class="progress-bar-2"></div></div>
+                    </div>
+                    <ul class="mt-4">
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-green-500 mr-2"></i><span><span data-lang="en">Value alignment</span><span data-lang="es">Alineación de valores</span></span></li>
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-green-500 mr-2"></i><span><span data-lang="en">Brand perception</span><span data-lang="es">Percepción de marca</span></span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i><span><span data-lang="en">Generational mapping</span><span data-lang="es">Mapeo generacional</span></span></li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-xl p-8 metric-card ccs-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-puzzle-piece text-2xl feature-icon"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">CCS</h3>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">
+                        <span data-lang="en">Cultural Cohesion Score</span>
+                        <span data-lang="es">Puntaje de Cohesión Cultural</span>
+                    </h4>
+                    <p class="text-gray-600 mb-6">
+                        <span data-lang="en">Analyzes consistency in cultural messaging across different channels and touchpoints.</span>
+                        <span data-lang="es">Analiza la consistencia del mensaje cultural a través de diferentes canales y puntos de contacto.</span>
+                    </p>
+                    <div class="mb-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">
+                                <span data-lang="en">Industry Average: 39%</span>
+                                <span data-lang="es">Promedio Industria: 39%</span>
+                            </span>
+                            <span class="text-sm font-medium">
+                                <span data-lang="en">Your Score: 86%</span>
+                                <span data-lang="es">Tu Puntaje: 86%</span>
+                            </span>
+                        </div>
+                        <div class="progress"><div class="progress-bar-3"></div></div>
+                    </div>
+                    <ul class="mt-4">
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-green-500 mr-2"></i><span><span data-lang="en">Cross-channel consistency</span><span data-lang="es">Consistencia multicanal</span></span></li>
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-green-500 mr-2"></i><span><span data-lang="en">Message integrity</span><span data-lang="es">Integridad del mensaje</span></span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i><span><span data-lang="en">Audience perception unity</span><span data-lang="es">Unidad en percepción de audiencia</span></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span data-lang="en">Plan </span>
+                    <span data-lang="es">Planifica </span>
+                    <span class="brain-gradient">
+                        <span data-lang="en">Smarter Campaigns</span>
+                        <span data-lang="es">Campañas Más Inteligentes</span>
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <span data-lang="en">Leverage our advanced technology to understand Hispanic audiences with unprecedented depth and accuracy</span>
+                    <span data-lang="es">Aprovecha nuestra tecnología avanzada para comprender a las audiencias hispanas con una profundidad y precisión sin precedentes</span>
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 card">
+                    <div class="text-4xl feature-icon mb-6"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span data-lang="en">698 IAB Categories</span>
+                        <span data-lang="es">698 Categorías IAB</span>
+                    </h3>
+                    <p class="text-gray-600">
+                        <span data-lang="en">Our platform analyzes content using 698 IAB content categories versus competitors' 25-50, providing unmatched precision in Hispanic audience targeting.</span>
+                        <span data-lang="es">Nuestra plataforma analiza contenido usando 698 categorías IAB vs. 25-50 de la competencia, brindando precisión inigualable en la segmentación de audiencias hispanas.</span>
+                    </p>
+                    <div class="mt-6">
+                        <div class="flex items-center text-sm"><span class="text-gray-500 mr-2"><span data-lang="en">Competitor Range:</span><span data-lang="es">Rango Competencia:</span></span><span class="font-medium"><span data-lang="en">25-50 categories</span><span data-lang="es">25-50 categorías</span></span></div>
+                        <div class="flex items-center text-sm mt-1"><span class="text-gray-500 mr-2"><span data-lang="en">Cultural Brain:</span><span data-lang="es">Cultural Brain:</span></span><span class="font-medium text-indigo-700"><span data-lang="en">698 categories</span><span data-lang="es">698 categorías</span></span></div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 card">
+                    <div class="text-4xl feature-icon mb-6"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span data-lang="en">Real-time Cultural Trending</span>
+                        <span data-lang="es">Tendencias Culturales en Tiempo Real</span>
+                    </h3>
+                    <p class="text-gray-600">
+                        <span data-lang="en">Monitor and capitalize on emerging Hispanic market trends, conversations, and cultural moments as they happen.</span>
+                        <span data-lang="es">Monitorea y capitaliza tendencias emergentes, conversaciones y momentos culturales del mercado hispano mientras suceden.</span>
+                    </p>
+                    <div class="mt-6">
+                        <ul class="text-sm space-y-2">
+                            <li class="flex items-center"><i class="fas fa-bolt text-yellow-500 mr-2"></i><span><span data-lang="en">Instant trend detection</span><span data-lang="es">Detección instantánea de tendencias</span></span></li>
+                            <li class="flex items-center"><i class="fas fa-bolt text-yellow-500 mr-2"></i><span><span data-lang="en">Cultural moment alerts</span><span data-lang="es">Alertas de momentos culturales</span></span></li>
+                            <li class="flex items-center"><i class="fas fa-bolt text-yellow-500 mr-2"></i><span><span data-lang="en">Opportunity forecasting</span><span data-lang="es">Pronóstico de oportunidades</span></span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 card">
+                    <div class="text-4xl feature-icon mb-6"><i class="fas fa-project-diagram"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span data-lang="en">Audience Overlap Analysis</span>
+                        <span data-lang="es">Análisis de Superposición de Audiencias</span>
+                    </h3>
+                    <p class="text-gray-600">
+                        <span data-lang="en">Discover hidden connections and opportunities between different Hispanic audience segments for more strategic campaign planning.</span>
+                        <span data-lang="es">Descubre conexiones ocultas y oportunidades entre diferentes segmentos de audiencia hispana para una planificación de campañas más estratégica.</span>
+                    </p>
+                    <div class="mt-6">
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <div class="text-xs text-gray-500 mb-1"><span data-lang="en">Sample Discovery</span><span data-lang="es">Descubrimiento Ejemplo</span></div>
+                            <p class="text-sm font-medium">
+                                <span data-lang="en">"75% overlap between Gen Z Spanish-preferred and Millennial Bilingual segments for sustainable products"</span>
+                                <span data-lang="es">"75% de superposición entre Gen Z hispanohablante y Millennials bilingües para productos sostenibles"</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span data-lang="en">See Cultural Brain in </span>
+                    <span data-lang="es">Ve Cultural Brain en </span>
+                    <span class="brain-gradient">
+                        <span data-lang="en">Action</span>
+                        <span data-lang="es">Acción</span>
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <span data-lang="en">Experience our real-time analysis by entering any URL or content to see how our metrics evaluate Hispanic cultural relevance</span>
+                    <span data-lang="es">Experimenta nuestro análisis en tiempo real ingresando cualquier URL o contenido para ver cómo nuestras métricas evalúan la relevancia cultural hispana</span>
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-xl p-8">
+                    <div class="mb-8">
+                        <label for="demo-input" class="block text-lg font-medium mb-2">
+                            <span data-lang="en">Analyze a URL or paste content:</span>
+                            <span data-lang="es">Analiza una URL o pega contenido:</span>
+                        </label>
+                        <div class="flex">
+                            <input id="demo-input" type="text" 
+                                   placeholder_en="https://example.com or paste your content here" 
+                                   placeholder_es="https://ejemplo.com o pega tu contenido aquí"
+                                   class="flex-grow px-4 py-3 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <button class="px-6 py-3 bg-indigo-900 text-white rounded-r-lg hover:bg-indigo-800 transition-colors font-medium">
+                                <span data-lang="en">Analyze</span>
+                                <span data-lang="es">Analizar</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold">
+                                <span data-lang="en">Analysis Results</span>
+                                <span data-lang="es">Resultados del Análisis</span>
+                            </h3>
+                            <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">
+                                <span data-lang="en">Premium Results</span>
+                                <span data-lang="es">Resultados Premium</span>
+                            </span>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-6 mb-8">
+                            <div class="text-center">
+                                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 mb-4"><span class="text-2xl font-bold text-indigo-900">92%</span></div>
+                                <h4 class="font-medium"><span data-lang="en">Cultural Relevance Score</span><span data-lang="es">Puntaje Relevancia Cultural</span></h4>
+                            </div>
+                            <div class="text-center">
+                                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 mb-4"><span class="text-2xl font-bold text-purple-900">78%</span></div>
+                                <h4 class="font-medium"><span data-lang="en">Cultural Affinity Index</span><span data-lang="es">Índice Afinidad Cultural</span></h4>
+                            </div>
+                            <div class="text-center">
+                                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-100 mb-4"><span class="text-2xl font-bold text-teal-700">86%</span></div>
+                                <h4 class="font-medium"><span data-lang="en">Cultural Cohesion Score</span><span data-lang="es">Puntaje Cohesión Cultural</span></h4>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                            <h4 class="font-medium mb-2">
+                                <span data-lang="en">Top Cultural Insights:</span>
+                                <span data-lang="es">Principales Insights Culturales:</span>
+                            </h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Strong resonance with bilingual Hispanic millennials (35-44) in urban centers</span><span data-lang="es">Fuerte resonancia con millennials hispanos bilingües (35-44) en centros urbanos</span></span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Authentic use of regional expressions from Mexican-American communities</span><span data-lang="es">Uso auténtico de expresiones regionales de comunidades mexicoamericanas</span></span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Opportunity to improve generational appeal for Gen Z Hispanic consumers</span><span data-lang="es">Oportunidad de mejorar atractivo generacional para consumidores hispanos Gen Z</span></span></li>
+                            </ul>
+                        </div>
+                        
+                        <p class="text-center text-sm text-gray-500">
+                            <span data-lang="en">This is a demo with sample data. Create an account to access full analysis capabilities.</span>
+                            <span data-lang="es">Esto es una demo con datos de muestra. Crea una cuenta para acceder a todas las capacidades de análisis.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span data-lang="en">Choose Your </span>
+                    <span data-lang="es">Elige Tu </span>
+                    <span class="brain-gradient">
+                        <span data-lang="en">Perfect Plan</span>
+                        <span data-lang="es">Plan Perfecto</span>
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <span data-lang="en">Scale your Hispanic marketing efforts with flexible options designed for businesses of all sizes</span>
+                    <span data-lang="es">Escala tus esfuerzos de marketing hispano con opciones flexibles diseñadas para empresas de todos los tamaños</span>
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg p-8 card relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gray-200 -mr-10 -mt-10 transform rotate-45"></div>
+                    <h3 class="text-2xl font-bold mb-2"><span data-lang="en">Starter</span><span data-lang="es">Básico</span></h3>
+                    <div class="flex items-end mb-6"><span class="text-4xl font-bold">$4,999</span><span class="text-gray-500 ml-2"><span data-lang="en">/month</span><span data-lang="es">/mes</span></span></div>
+                    <p class="text-gray-600 mb-6"><span data-lang="en">Perfect for small agencies and brands new to Hispanic marketing</span><span data-lang="es">Perfecto para agencias pequeñas y marcas nuevas en marketing hispano</span></p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Access to all 3 proprietary metrics</span><span data-lang="es">Acceso a las 3 métricas propietarias</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">5 user seats</span><span data-lang="es">5 usuarios</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">100 URL analyses per month</span><span data-lang="es">100 análisis de URL por mes</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Basic reporting dashboard</span><span data-lang="es">Panel de reportes básico</span></span></li>
+                        <li class="flex items-start text-gray-400"><i class="fas fa-times mt-1 mr-2"></i><span><span data-lang="en">API access</span><span data-lang="es">Acceso API</span></span></li>
+                        <li class="flex items-start text-gray-400"><i class="fas fa-times mt-1 mr-2"></i><span><span data-lang="en">Custom integrations</span><span data-lang="es">Integraciones personalizadas</span></span></li>
+                    </ul>
+                    <a href="#" class="block w-full py-3 text-center rounded-lg btn-secondary font-semibold"><span data-lang="en">Get Started</span><span data-lang="es">Comenzar</span></a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-xl p-8 card relative overflow-hidden transform scale-105 z-10">
+                    <div class="absolute top-0 left-0 w-full bg-gradient-to-r from-indigo-900 to-purple-900 text-white text-center py-1 text-sm font-medium"><span data-lang="en">MOST POPULAR</span><span data-lang="es">MÁS POPULAR</span></div>
+                    <h3 class="text-2xl font-bold mb-2 mt-4"><span data-lang="en">Professional</span><span data-lang="es">Profesional</span></h3>
+                    <div class="flex items-end mb-6"><span class="text-4xl font-bold">$9,999</span><span class="text-gray-500 ml-2"><span data-lang="en">/month</span><span data-lang="es">/mes</span></span></div>
+                    <p class="text-gray-600 mb-6"><span data-lang="en">Ideal for mid-sized agencies and established Hispanic marketing teams</span><span data-lang="es">Ideal para agencias medianas y equipos de marketing hispano establecidos</span></p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Everything in Starter</span><span data-lang="es">Todo en Básico</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">15 user seats</span><span data-lang="es">15 usuarios</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">500 URL analyses per month</span><span data-lang="es">500 análisis de URL por mes</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Advanced reporting & white-labeling</span><span data-lang="es">Reportes avanzados y marca blanca</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">API access (5,000 calls/month)</span><span data-lang="es">Acceso API (5,000 llamadas/mes)</span></span></li>
+                        <li class="flex items-start text-gray-400"><i class="fas fa-times mt-1 mr-2"></i><span><span data-lang="en">Custom integrations</span><span data-lang="es">Integraciones personalizadas</span></span></li>
+                    </ul>
+                    <a href="#" class="block w-full py-3 text-center rounded-lg text-white btn-primary font-semibold"><span data-lang="en">Get Started</span><span data-lang="es">Comenzar</span></a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 card relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gray-200 -mr-10 -mt-10 transform rotate-45"></div>
+                    <h3 class="text-2xl font-bold mb-2"><span data-lang="en">Enterprise</span><span data-lang="es">Empresarial</span></h3>
+                    <div class="flex items-end mb-6"><span class="text-4xl font-bold"><span data-lang="en">Custom</span><span data-lang="es">Personalizado</span></span></div>
+                    <p class="text-gray-600 mb-6"><span data-lang="en">For large agencies, brands, and Hispanic marketing experts</span><span data-lang="es">Para grandes agencias, marcas y expertos en marketing hispano</span></p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Everything in Professional</span><span data-lang="es">Todo en Profesional</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Unlimited user seats</span><span data-lang="es">Usuarios ilimitados</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Unlimited URL analyses</span><span data-lang="es">Análisis de URL ilimitados</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Dedicated success manager</span><span data-lang="es">Gerente de éxito dedicado</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Unlimited API access</span><span data-lang="es">Acceso API ilimitado</span></span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span><span data-lang="en">Custom integrations</span><span data-lang="es">Integraciones personalizadas</span></span></li>
+                    </ul>
+                    <a href="#" class="block w-full py-3 text-center rounded-lg btn-secondary font-semibold"><span data-lang="en">Contact Sales</span><span data-lang="es">Contactar Ventas</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 bg-gradient">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+                    <span data-lang="en">Success </span>
+                    <span data-lang="es">Casos de </span>
+                    <span class="text-teal-300">
+                        <span data-lang="en">Stories</span>
+                        <span data-lang="es">Éxito</span>
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    <span data-lang="en">See how leading brands are transforming their Hispanic marketing with Cultural Brain</span>
+                    <span data-lang="es">Vea cómo las marcas líderes están transformando su marketing hispano con Cultural Brain</span>
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-xl p-8 testimonial">
+                    <div class="mb-6"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></div>
+                    <p class="text-gray-700 mb-6">
+                        <span data-lang="en">"Cultural Brain's insights increased our Hispanic engagement by 312% and helped us discover cultural nuances we were missing in our campaigns."</span>
+                        <span data-lang="es">"Los insights de Cultural Brain aumentaron nuestra interacción hispana en un 312% y nos ayudaron a descubrir matices culturales que nos faltaban en nuestras campañas."</span>
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"><span class="font-semibold">WM</span></div>
+                        <div><h4 class="font-bold">Maria Rodriguez</h4><p class="text-sm text-gray-500"><span data-lang="en">Chief Marketing Officer, Walmart</span><span data-lang="es">Directora de Marketing, Walmart</span></p></div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-xl p-8 testimonial">
+                    <div class="mb-6"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></div>
+                    <p class="text-gray-700 mb-6">
+                        <span data-lang="en">"We found $2.3M in untapped Hispanic inventory opportunities that our previous tools completely missed. The ROI has been exceptional."</span>
+                        <span data-lang="es">"Encontramos $2.3M en oportunidades de inventario hispano sin explotar que nuestras herramientas anteriores omitieron por completo. El ROI ha sido excepcional."</span>
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"><span class="font-semibold">SF</span></div>
+                        <div><h4 class="font-bold">James Thompson</h4><p class="text-sm text-gray-500"><span data-lang="en">VP Marketing, State Farm</span><span data-lang="es">VP de Marketing, State Farm</span></p></div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-xl p-8 testimonial">
+                    <div class="mb-6"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></div>
+                    <p class="text-gray-700 mb-6">
+                        <span data-lang="en">"Cultural Brain reduced our Hispanic campaign planning from weeks to hours. The scientific approach to cultural relevance gives us a major competitive advantage."</span>
+                        <span data-lang="es">"Cultural Brain redujo nuestra planificación de campañas hispanas de semanas a horas. El enfoque científico de la relevancia cultural nos da una gran ventaja competitiva."</span>
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"><span class="font-semibold">PG</span></div>
+                        <div><h4 class="font-bold">Sofia Morales</h4><p class="text-sm text-gray-500"><span data-lang="en">Group Director, Publicis</span><span data-lang="es">Directora de Grupo, Publicis</span></p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            <span data-lang="en">Ready to Transform Your Hispanic Marketing?</span>
+                            <span data-lang="es">¿Listo para Transformar tu Marketing Hispano?</span>
+                        </h2>
+                        <p class="text-xl text-gray-600 mb-8">
+                            <span data-lang="en">Book a personalized demo to see how Cultural Brain can help you connect with Hispanic audiences authentically and drive measurable results.</span>
+                            <span data-lang="es">Agenda una demo personalizada para ver cómo Cultural Brain puede ayudarte a conectar auténticamente con audiencias hispanas y generar resultados medibles.</span>
+                        </p>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1"><span data-lang="en">Name</span><span data-lang="es">Nombre</span></label>
+                                <input type="text" id="name" placeholder_en="Your name" placeholder_es="Tu nombre" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label for="company" class="block text-sm font-medium text-gray-700 mb-1"><span data-lang="en">Company</span><span data-lang="es">Empresa</span></label>
+                                <input type="text" id="company" placeholder_en="Your company" placeholder_es="Tu empresa" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" placeholder_en="Your email" placeholder_es="Tu email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <button type="submit" class="w-full py-3 rounded-lg text-white btn-primary font-semibold">
+                                <span data-lang="en">Schedule My Demo</span>
+                                <span data-lang="es">Agendar Mi Demo</span>
+                            </button>
+                        </form>
+                        <p class="text-sm text-gray-500 mt-4 text-center">
+                            <span data-lang="en">We'll contact you within 24 hours to arrange your personalized demo.</span>
+                            <span data-lang="es">Te contactaremos en 24 horas para organizar tu demo personalizada.</span>
+                        </p>
+                    </div>
+                    <div class="bg-gradient p-12 flex flex-col justify-center items-center text-center text-white">
+                        <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-6"><i class="fas fa-rocket text-3xl text-white"></i></div>
+                        <h3 class="text-2xl font-bold mb-4"><span data-lang="en">Already convinced?</span><span data-lang="es">¿Ya estás convencido?</span></h3>
+                        <p class="text-lg mb-6">
+                            <span data-lang="en">Start your free 14-day trial and experience the power of cultural intelligence firsthand.</span>
+                            <span data-lang="es">Comienza tu prueba gratuita de 14 días y experimenta el poder de la inteligencia cultural de primera mano.</span>
+                        </p>
+                        <a href="#" class="px-8 py-3 rounded-lg bg-white text-indigo-900 font-semibold hover:bg-opacity-90 transition-colors">
+                            <span data-lang="en">Start Free Trial</span>
+                            <span data-lang="es">Comenzar Prueba Gratuita</span>
+                        </a>
+                        <p class="text-sm mt-4 opacity-80">
+                            <span data-lang="en">No credit card required. Cancel anytime.</span>
+                            <span data-lang="es">No se requiere tarjeta de crédito. Cancela cuando quieras.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <svg class="h-10 w-auto mb-6" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="footerBrainGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f14b74" /><stop offset="100%" stop-color="#1d41db" /></linearGradient></defs>
+                        <path d="M30 10C17.5 10 10 25 10 35C10 45 17.5 60 30 60C42.5 60 50 45 50 35C50 25 42.5 10 30 10Z" fill="url(#footerBrainGradient)" />
+                        <circle cx="45" cy="20" r="10" fill="#599cfc" /><path d="M30 10V60" stroke="white" stroke-width="2" />
+                        <text x="65" y="35" font-family="Space Grotesk" font-weight="600" font-size="20" fill="white">Cultural</text>
+                        <text x="65" y="55" font-family="Space Grotesk" font-weight="600" font-size="20" fill="white">Brain</text>
+                    </svg>
+                    <p class="text-sm text-gray-400">
+                        <span data-lang="en">The intelligence infrastructure for the $3.2T Hispanic market.</span>
+                        <span data-lang="es">La infraestructura de inteligencia para el mercado hispano de $3.2T.</span>
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4"><span data-lang="en">Platform</span><span data-lang="es">Plataforma</span></h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Features</span><span data-lang="es">Características</span></a></li>
+                        <li><a href="#metrics" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Metrics</span><span data-lang="es">Métricas</span></a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Pricing</span><span data-lang="es">Precios</span></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">API Documentation</span><span data-lang="es">Documentación API</span></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Integrations</span><span data-lang="es">Integraciones</span></a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4"><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">About Us</span><span data-lang="es">Nosotros</span></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Careers</span><span data-lang="es">Carreras</span></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Press</span><span data-lang="es">Prensa</span></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Hispanic Market Guide</span><span data-lang="es">Guía del Mercado Hispano</span></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Webinars</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Whitepapers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors"><span data-lang="en">Support</span><span data-lang="es">Soporte</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400">
+                    <span data-lang="en">© 2025 Cultural Brain. All rights reserved. Part of the </span>
+                    <span data-lang="es">© 2025 Cultural Brain. Todos los derechos reservados. Parte del ecosistema </span>
+                    <a href="#" class="text-white hover:text-teal-300">HISPAÑO</a>.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors"><span data-lang="en">Privacy Policy</span><span data-lang="es">Política de Privacidad</span></a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors"><span data-lang="en">Terms of Service</span><span data-lang="es">Términos de Servicio</span></a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors"><span data-lang="en">Cookie Policy</span><span data-lang="es">Política de Cookies</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('metricsChart').getContext('2d');
+            var metricsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], // These labels can be translated if chart is redrawn
+                    datasets: [
+                        { label: 'CRS', data: [72, 76, 80, 85, 88, 92], borderColor: '#1e3a8a', backgroundColor: 'rgba(30, 58, 138, 0.1)', tension: 0.4, fill: true },
+                        { label: 'CAI', data: [65, 68, 70, 72, 74, 78], borderColor: '#6d1b8f', backgroundColor: 'rgba(109, 27, 143, 0.1)', tension: 0.4, fill: true },
+                        { label: 'CCS', data: [70, 72, 76, 80, 84, 86], borderColor: '#2dd4bf', backgroundColor: 'rgba(45, 212, 191, 0.1)', tension: 0.4, fill: true }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false }}, scales: { y: { beginAtZero: true, max: 100, display: false }, x: { display: false }}}
+            });
+
+            // Language switcher logic
+            const currentLangBtn = document.getElementById('currentLangBtn');
+            const currentLangFlag = document.getElementById('currentLangFlag');
+            const currentLangText = document.getElementById('currentLangText');
+            const demoInput = document.getElementById('demo-input');
+            const nameInput = document.getElementById('name');
+            const companyInput = document.getElementById('company');
+            const emailInput = document.getElementById('email');
+
+
+            window.changeLanguage = function(lang) {
+                document.body.className = lang === 'es' ? 'lang-es' : '';
+                
+                if (lang === 'es') {
+                    currentLangFlag.src = 'https://flagcdn.com/w20/es.png';
+                    currentLangFlag.alt = 'ES';
+                    currentLangText.textContent = 'ES';
+                    if(demoInput) demoInput.placeholder = demoInput.getAttribute('placeholder_es');
+                    if(nameInput) nameInput.placeholder = nameInput.getAttribute('placeholder_es');
+                    if(companyInput) companyInput.placeholder = companyInput.getAttribute('placeholder_es');
+                    if(emailInput) emailInput.placeholder = emailInput.getAttribute('placeholder_es');
+                    document.title = 'Cultural Brain - Inteligencia y Cultura | Plataforma de Campañas Hispanas';
+                    document.querySelector('meta[name="description"]').setAttribute("content", "Planifica, ejecuta y mide campañas de marketing para hispanos con precisión científica. Métricas CRS, CAI, CCS. Usado por marcas Fortune 500.");
+
+                } else {
+                    currentLangFlag.src = 'https://flagcdn.com/w20/us.png';
+                    currentLangFlag.alt = 'EN';
+                    currentLangText.textContent = 'EN';
+                    if(demoInput) demoInput.placeholder = demoInput.getAttribute('placeholder_en');
+                    if(nameInput) nameInput.placeholder = nameInput.getAttribute('placeholder_en');
+                    if(companyInput) companyInput.placeholder = companyInput.getAttribute('placeholder_en');
+                    if(emailInput) emailInput.placeholder = emailInput.getAttribute('placeholder_en');
+                    document.title = 'Cultural Brain - Intelligence Meets Culture | Hispanic Campaign Platform';
+                     document.querySelector('meta[name="description"]').setAttribute("content", "Plan, execute, and measure Hispanic marketing campaigns with scientific precision. CRS, CAI, CCS metrics. Used by Fortune 500 brands.");
+                }
+                
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.classList.remove('active');
+                    if (option.getAttribute('onclick') === `changeLanguage('${lang}')`) {
+                        option.classList.add('active');
+                    }
+                });
+                
+                localStorage.setItem('culturalbrain-lang', lang);
+                document.documentElement.lang = lang;
+            }
+            
+            const savedLang = localStorage.getItem('culturalbrain-lang') || 'en';
+            changeLanguage(savedLang);
+
+             // Update placeholders for form inputs based on the initial language
+            if (demoInput) { // Check if element exists
+                if (savedLang === 'es') {
+                    demoInput.placeholder = demoInput.getAttribute('placeholder_es');
+                } else {
+                    demoInput.placeholder = demoInput.getAttribute('placeholder_en');
+                }
+            }
+            if (nameInput) {
+                 if (savedLang === 'es') {
+                    nameInput.placeholder = nameInput.getAttribute('placeholder_es');
+                } else {
+                    nameInput.placeholder = nameInput.getAttribute('placeholder_en');
+                }
+            }
+            if (companyInput) {
+                 if (savedLang === 'es') {
+                    companyInput.placeholder = companyInput.getAttribute('placeholder_es');
+                } else {
+                    companyInput.placeholder = companyInput.getAttribute('placeholder_en');
+                }
+            }
+             if (emailInput) {
+                 if (savedLang === 'es') {
+                    emailInput.placeholder = emailInput.getAttribute('placeholder_es');
+                } else {
+                    emailInput.placeholder = emailInput.getAttribute('placeholder_en');
+                }
+            }
+
+
+        });
+    </script>
+</body>
+</html>
