@@ -7,7 +7,7 @@
     },
     {
       "source": "/",
-      "destination": "/landings/landing_cb_pixel.html",
+      "destination": "/landings/landing_ cb_pixel.html",
       "has": [{"type": "host", "value": "pixel.hispan.io"}]
     },
     {
